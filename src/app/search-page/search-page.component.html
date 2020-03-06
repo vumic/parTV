@@ -1,0 +1,15 @@
+<h2 class="popularTitle">Search Results</h2>
+<div class="searchMovies">
+  <div class="display" *ngFor="let movie of data">
+    <div class="card">
+      <a class="overlay" [routerLink]="['/movie',movie.id]">
+        <div class="movie">
+          <h2>{{movie.title}}</h2>
+          <p id="overview"><strong>Overview:</strong> <span>{{movie.overview}}</span></p>
+          <p id="rating"><strong>Rating:</strong> <span>{{movie.vote_average}} / 10</span></p>
+        </div>
+      </a>
+      <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+    </div>
+  </div>
+</div>

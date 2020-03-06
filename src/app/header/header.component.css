@@ -1,0 +1,53 @@
+#header h1 {
+	position: relative;
+    font-family: serif;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    font-size: 2em;
+    border-top-left-radius: 0px;
+}
+#header .icon {
+  float: left;
+  width: 45px;
+  height: 45px;
+}
+#header ul.navBar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#header ul.navBar li {float: left;}
+
+#header ul.navBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navBar .search-container {float: right;}
+.navBar .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: 1px solid #4CA1AF;
+  cursor: pointer;
+  background: #4CA1AF;
+}
+
+.navBar .search-container button:hover {
+  background: #ccc;
+}
+.navBar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+.navBar input[type=text] {border: 1px solid #ccc;}

@@ -1,0 +1,56 @@
+.displayMovies{ 
+    position: relative;
+    width: 100%;
+}
+.displayCast{
+    position: relative;
+    top: 40px;
+    display: inline-block;
+}
+.card img{
+    position: absolute;
+    padding: 20px;
+    left: 0%;
+  }
+#movie_label{ 
+    text-align: center;
+    font-size: 40px;
+}
+#cast_label{ 
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+}
+.card{
+    position: relative;
+    display: inline-block;
+    width:50%;
+    border:none;
+}
+
+.card .movie {
+    position:relative;
+    left:400px;
+    padding: 20px;
+    width: 50%;
+}
+#mov_name{
+    text-align: center;
+    font-size: 40px;
+    font-family: "Serif";
+    color: #4CA1AF;
+}
+
+.CM{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto; /* 2 COL LAYOUT */
+   
+}
+.cast_card{
+    position: relative;
+    top: 0px;
+    border: 2px black;
+    padding: 20px;
+    border:none;
+}

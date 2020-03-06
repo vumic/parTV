@@ -1,0 +1,69 @@
+@charset "utf-8";
+.searchMovies {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto; /* 2 COL LAYOUT */
+  }
+  .searchMovies{
+    position: relative;
+    margin: 50px 0;
+  }
+  .popularTitle{
+    text-align: center;
+    font-family: "Serif";
+  }
+  .display{
+    margin:15px auto;
+    transition: 0.5s ease;
+  }
+  .card{
+    margin: 0px 5px;
+    position: relative;
+    width: 200px;
+    height: 270px;
+    transition: 0.5s ease;
+    display: inline-block;
+  }
+  .card img{
+    width: 200px;
+    height: 270px;
+  }
+  
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    transition: .3s ease-in-out;
+    padding: 0px;
+    display: none;
+  }
+ 
+  .movie p {
+    font-family: "Serif";
+    color: #4CA1AF;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #overview{
+    font-size: 10px;
+  }
+  #rating{
+      color:rgb(207, 225, 226);
+  }
+
+  .overlay h2{
+    margin:10px;
+    font-family: "Serif";
+    text-align: center;
+    width: auto;
+    font-size: 20px;
+    color: rgb(207, 225, 226);
+  }
+  .card:hover .overlay{
+    display: block;
+  }
+  
+  
