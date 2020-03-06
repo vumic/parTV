@@ -27,7 +27,7 @@ export class MovieDisplayComponent implements OnInit {
       });
       this.pservice.getCast(this.movie).subscribe((res: Response) => {
         console.log(res);
-        this.cast = res.cast;
+        this.cast = res;
        
       });
     });

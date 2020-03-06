@@ -20,7 +20,7 @@ constructor( private route: ActivatedRoute, private service: RequestApiService) 
       this.query = params.get('query');
       console.log(this.query);
       this.pservice.searchQuery(this.query).subscribe((res: Response) => {
-        this.data = res.results;
+        this.data = res;
         console.log(this.data);
       });
     

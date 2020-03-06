@@ -2,7 +2,7 @@
 	TRENDING MOVIES OF THE WEEK
 </p>
 <div class="popDisplay">
-	<div *ngFor="let movie of data;">
+	<div *ngFor="let movie of data.results;">
 		<div class="card" >
 			<a class="overlay" [routerLink]= "['/movie',movie.id]">
 				<div class="movie">

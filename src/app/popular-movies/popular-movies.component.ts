@@ -11,8 +11,8 @@ export class PopularMoviesComponent implements OnInit {
   
   constructor(private service: RequestApiService ) { 
     service.getPopularMovies().subscribe((res: Response) => {
-        console.log(res.results);
-        this.data = res.results;
+        console.log(res);
+        this.data = res;
       });
   }
 

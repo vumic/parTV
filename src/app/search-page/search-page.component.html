@@ -1,6 +1,6 @@
 <h2 class="popularTitle">Search Results</h2>
 <div class="searchMovies">
-  <div class="display" *ngFor="let movie of data">
+  <div class="display" *ngFor="let movie of data.results">
     <div class="card">
       <a class="overlay" [routerLink]="['/movie',movie.id]">
         <div class="movie">
