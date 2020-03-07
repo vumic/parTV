@@ -2,16 +2,18 @@
   <h2 id="movie_label">Movie</h2>
   <div class="card">
     <span class="image">
-      <img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + data.poster_path}}">
+      <a href="https://www.imdb.com/title/{{data?.imdb_id}}/" target="_blank">
+      <img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}">
+    </a>
     </span>
     <span class="movie">
-      <h2 id="mov_name">{{data.title}}</h2>
-      <p id="overview">Overview: <span>{{data.overview}}</span></p>
-      <p id="runtime">Tagline: <span>"{{data.tagline}}"</span></p>
-      <p id="rating">Rating: <span>{{data.vote_average}} / 10</span></p>
-      <p id="genres">Genre: <span>{{data.genres}}</span></p>
-      <p id="runtime">Runtime: <span>{{data.runtime}} minutes</span></p>
-      <p id="budget">Budget: <span>${{data.budget}}</span></p>
+      <h2 id="mov_name">{{data?.title}}</h2>
+      <p id="overview">Overview: <span>{{data?.overview}}</span></p>
+      <p id="tagLine">Tagline: "{{data?.tagline}}"</p>
+      <p id="rating">Rating: <span>{{data?.vote_average}} / 10</span></p>
+      <p id="genres">Genre: <span>{{genres}}</span></p>
+      <p id="runtime">Runtime: <span>{{data?.runtime}} minutes</span></p>
+      <p id="budget">Budget: <span>${{data?.budget}}</span></p>
     </span>
   </div>
 </span>
@@ -19,13 +21,13 @@
 <div class="displayCast">
   <h2 id="cast_label">Cast</h2>
   <div class="CM">
-    <div *ngFor="let member of cast.cast;">
+    <div *ngFor="let member of cast?.cast  | slice:0:14; let i=index;">
       <div class="cast_card">
         <div class="cast_image">
-          <img onerror="this.onerror=null; this.src='assets/no_img_cast.png'"src="{{'http://image.tmdb.org/t/p/w154' + member.profile_path}}">
+          <img onerror="this.onerror=null; this.src='assets/no_img_cast.png'" src="{{'http://image.tmdb.org/t/p/w154' + member?.profile_path}}">
         </div>
         <span class="cast">
-          <p id="cast_name">{{member.name}}</p>
+          <p id="cast_name">{{member?.name}}</p>
           <p id="character">Character: <span>{{member.character}}</span></p>
         </span>
       </div>

@@ -13,6 +13,7 @@ export class MovieDisplayComponent implements OnInit {
   data;
   pservice;
   cast;
+  genres = '';
   constructor( private route: ActivatedRoute, private service: RequestApiService) {
     this.pservice = service;
     
@@ -24,6 +25,11 @@ export class MovieDisplayComponent implements OnInit {
       console.log(this.movie);
       this.pservice.getMovie(this.movie).subscribe((res: Response) => {
         this.data = res;
+        console.log (this.data);
+
+        for (let i = 0; i < this.data.genres.length; i++) {
+            this.genres += this.data.genres[i].name + " ";
+        }
       });
       this.pservice.getCast(this.movie).subscribe((res: Response) => {
         console.log(res);
