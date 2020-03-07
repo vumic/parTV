@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { HeaderComponent } from './header/header.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { RequestApiService } from './request-api.service';
@@ -17,10 +16,10 @@ import { AboutPageComponent } from './about-page/about-page.component';
   imports:      [ BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot([
     {path: '', component: HomePageComponent },
     {path: 'movie/:movieID', component: MovieDisplayComponent},
-    {path: 'search/:query', component: SearchPageComponent},
+    {path: 'search/:query/:page', component: SearchPageComponent},
     {path: 'about', component: AboutPageComponent}
   ])],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, PopularMoviesComponent, MovieDisplayComponent,HomePageComponent, SearchPageComponent, AboutPageComponent ],
+  declarations: [ AppComponent, HeaderComponent, PopularMoviesComponent, MovieDisplayComponent,HomePageComponent, SearchPageComponent, AboutPageComponent ],
   bootstrap:    [ AppComponent ],
   providers: [RequestApiService],
   

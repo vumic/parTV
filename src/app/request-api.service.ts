@@ -18,7 +18,7 @@ export class RequestApiService {
   getCast(id){
     return this.http.get(this.url + 'movie/' + id + '/credits' + this.key);
   }
-  searchQuery(query){
-    return this.http.get(this.url + 'search/movie' + this.key + '&language=en-US&query=' + query +'&page=1&include_adult=false');
+  searchQuery(query,page){
+    return this.http.get(this.url + 'search/movie' + this.key + '&language=en-US&query=' + query +'&page='+page+'&include_adult=false');
   }
 }

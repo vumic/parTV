@@ -19,6 +19,6 @@ export class HeaderComponent implements OnInit {
 
   search() {
     var keyword = this.doc.getElementById("textbox").value;
-    window.location.href = "/search/" + keyword;  
+    window.location.href = "/search/" + keyword + "/1";  
   }
 }

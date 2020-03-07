@@ -65,5 +65,9 @@
   .card:hover .overlay{
     display: block;
   }
+
+  #nextButton {
+   left: 50%;
+  }
   
   

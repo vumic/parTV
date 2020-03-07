@@ -11,6 +11,8 @@ export class SearchPageComponent implements OnInit {
 query;
 pservice;
 data;
+page;
+
 constructor( private route: ActivatedRoute, private service: RequestApiService) {
   this.pservice = service;
   
@@ -18,13 +20,24 @@ constructor( private route: ActivatedRoute, private service: RequestApiService) 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.query = params.get('query');
+      this.page = params.get('page');
       console.log(this.query);
-      this.pservice.searchQuery(this.query).subscribe((res: Response) => {
+      console.log("page: " + this.page);
+      this.pservice.searchQuery(this.query, this.page).subscribe((res: Response) => {
         this.data = res;
         console.log(this.data);
       });
     
     });
+  }
+
+  nextPage(){
+    if(this.page < this.data.total_pages){
+      window.location.href = "/search/" + this.query + "/" + ++this.page;  
+    }
+    else{
+      window.alert("No more pages");
+    }
   }
   
 }
