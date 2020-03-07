@@ -39,5 +39,29 @@ constructor( private route: ActivatedRoute, private service: RequestApiService) 
       window.alert("No more pages");
     }
   }
-  
+  backPage(){
+    if(this.page > 1){
+      window.location.href = "/search/" + this.query + "/" + --this.page;  
+    }
+    else{
+      window.alert("No more pages");
+    }
+  }
+  isInvalid(button){
+    if(button === "back"){
+    if(this.page == 1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+ else {
+  if(this.page == this.data.total_pages){
+    return true;
+  }else {
+    return false;
+  }
+}
+
+}
 }

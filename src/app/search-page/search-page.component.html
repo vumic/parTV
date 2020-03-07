@@ -14,4 +14,6 @@
   </div>
 </div>
 
-<button (click)="nextPage()" id="nextButton" type="button">Next page ({{page}})</button>
+<button id="backButton" [disabled]="isInvalid('back')" (click)="backPage()" type="button">Back page</button>
+<span [ngModel]="page" id = "page">{{page}}</span>
+<button (click)="nextPage()" id="nextButton" [disabled]="isInvalid('next')"  type="button">Next page</button>

@@ -67,7 +67,17 @@
   }
 
   #nextButton {
-   left: 50%;
+    position:absolute;
+    right:40%;
   }
+  #backButton {
+    position:absolute;
+    left:40%;
+  }
+  #page {
+    position:absolute;
+    left:50%;
+  }
+
   
   
