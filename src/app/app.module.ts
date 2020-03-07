@@ -11,6 +11,8 @@ import { MovieDisplayComponent } from './movie-display/movie-display.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
+import { NowPlayingComponent } from './now-playing/now-playing.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot([
@@ -19,7 +21,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
     {path: 'search/:query/:page', component: SearchPageComponent},
     {path: 'about', component: AboutPageComponent}
   ])],
-  declarations: [ AppComponent, HeaderComponent, PopularMoviesComponent, MovieDisplayComponent,HomePageComponent, SearchPageComponent, AboutPageComponent ],
+  declarations: [ AppComponent, HeaderComponent, PopularMoviesComponent, MovieDisplayComponent,HomePageComponent, SearchPageComponent, AboutPageComponent, TopRatedComponent, NowPlayingComponent ],
   bootstrap:    [ AppComponent ],
   providers: [RequestApiService],
   

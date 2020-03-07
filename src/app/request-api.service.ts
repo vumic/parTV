@@ -12,6 +12,12 @@ export class RequestApiService {
   getPopularMovies() {
     return this.http.get(this.url + 'trending/movie/week' + this.key);
   }
+  getTopRatedMovies(){
+    return this.http.get(this.url + 'movie/top_rated' + this.key+ '&language=en-US&page=1&region=US');
+  }
+  getNowPlaying(){
+    return this.http.get(this.url + 'movie/now_playing' + this.key+ '&language=en-US&page=1&region=US');
+  }
   getMovie(id){
     return this.http.get(this.url + 'movie/'+ id + this.key + '&language=en-US');
   }
