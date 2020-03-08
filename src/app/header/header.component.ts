@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Inject }  from '@angular/core';
-import { DOCUMENT } from '@angular/common'; 
+import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +7,14 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  doc;
-  constructor(@Inject(DOCUMENT) document) {
-    this.doc = document;
-
+  keyword: string;
+  constructor(private router: Router, ) {
   }
 
   ngOnInit() {
   }
 
   search() {
-    var keyword = this.doc.getElementById("textbox").value;
-    window.location.href = "/search/" + keyword + "/1";  
+    this.router.navigate(['/search/', this.keyword, 1]);
   }
 }

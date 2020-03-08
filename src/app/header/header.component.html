@@ -4,12 +4,12 @@
 	<h1>ParTV <img src="assets/lbicon.png" class="icon" alt="lbicon"></h1>
 	<ul id="navID" class="navBar">
 		<li><a home [routerLink]= "['']">Home</a></li>
-		<li><a acc href="createAcc.html">Account</a></li>
+		<li><a acc href="#acc">Account</a></li>
 		<li><a films href="#films">Films</a></li>
 		<li><a party href="#cop">Create a Party</a></li>
-		<li class="right"><a  [routerLink]= "['about']">About</a></li>
+		<li class="right"><a [routerLink]= "['about']">About</a></li>
 		<div class="search-container">
-			<input (keyup.enter)="search()" id="textbox" type="text" placeholder="Search Movie Title..">
+			<input  (input)="keyword=$event.target.value" (keyup.enter)="search()" id="textbox" type="text" placeholder="Search Movie Title..">
 			<button (click)="search()" id="searchButton" type="submit"><i class="fa fa-search"></i></button>
 		</div>
 	</ul>

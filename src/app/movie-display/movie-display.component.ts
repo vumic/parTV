@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestApiService } from '../request-api.service';
 
+import { Cast } from '../Cast';
+import { Movie } from '../Movie';
 
 @Component({
   selector: 'app-movie-display',
@@ -10,9 +12,9 @@ import { RequestApiService } from '../request-api.service';
 })
 export class MovieDisplayComponent implements OnInit {
   movie;
-  data;
+  data : Movie;
   pservice;
-  cast;
+  cast : Cast;
   genres = '';
   constructor( private route: ActivatedRoute, private service: RequestApiService) {
     this.pservice = service;
@@ -23,16 +25,16 @@ export class MovieDisplayComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.movie = params.get('movieID');
       console.log(this.movie);
-      this.pservice.getMovie(this.movie).subscribe((res: Response) => {
+      this.pservice.getMovie(this.movie).subscribe((res: Movie) => {
         this.data = res;
-        console.log (this.data);
+        console.log ("Movie: " + this.data);
 
         for (let i = 0; i < this.data.genres.length; i++) {
             this.genres += this.data.genres[i].name + " ";
         }
       });
-      this.pservice.getCast(this.movie).subscribe((res: Response) => {
-        console.log(res);
+      this.pservice.getCast(this.movie).subscribe((res: Cast) => {
+        console.log("Cast: " + res);
         this.cast = res;
        
       });

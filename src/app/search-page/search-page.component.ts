@@ -1,67 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RequestApiService } from '../request-api.service';
+import { Router } from '@angular/router';
 
+import { Movie } from '../Movie';
+import { RequestApiService } from '../request-api.service';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
-query;
-pservice;
-data;
-page;
+  query: string;
+  pservice;
+  data: Movie;
+  page;
 
-constructor( private route: ActivatedRoute, private service: RequestApiService) {
-  this.pservice = service;
-  
- }
+  constructor(private router: Router, private route: ActivatedRoute, private service: RequestApiService) {
+    this.pservice = service;
+
+  }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.query = params.get('query');
       this.page = params.get('page');
-      console.log(this.query);
-      console.log("page: " + this.page);
-      this.pservice.searchQuery(this.query, this.page).subscribe((res: Response) => {
+
+      this.pservice.searchQuery(this.query, this.page).subscribe((res: Movie) => {
         this.data = res;
         console.log(this.data);
       });
-    
     });
   }
 
-  nextPage(){
-    if(this.page < this.data.total_pages){
-      window.location.href = "/search/" + this.query + "/" + ++this.page;  
-    }
-    else{
-      window.alert("No more pages");
+  nextPage() {
+    if (this.page < this.data.total_pages) {
+      this.router.navigate(['/search/', this.query, ++this.page]);
     }
   }
-  backPage(){
-    if(this.page > 1){
-      window.location.href = "/search/" + this.query + "/" + --this.page;  
-    }
-    else{
-      window.alert("No more pages");
+  backPage() {
+    if (this.page > 1) {
+      this.router.navigate(['/search/', this.query, --this.page]);
     }
   }
-  isInvalid(button){
-    if(button === "back"){
-    if(this.page == 1){
-      return true;
-    }else{
-      return false;
-    }
+  isInvalid(button : string) {
+   return (button === "back") ? (this.page == 1) ? true : false : (this.page == this.data.total_pages ) ? true : false; 
   }
- else {
-  if(this.page == this.data.total_pages){
-    return true;
-  }else {
-    return false;
-  }
-}
-
-}
 }
