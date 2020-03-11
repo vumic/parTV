@@ -2,7 +2,8 @@
 	TOP RATED MOVIES
 </p>
 <div class="popDisplay">
-	<div *ngFor="let movie of data?.results| slice:0:5; let i=index;">
+	<button [disabled]="isInvalid('back')" (click)="back()" id = 'back' ><</button>
+	<div *ngFor="let movie of data?.results| slice:x:y; let i=index;">
 		<div class="card" >
 			<a class="overlay" [routerLink]= "['/movie',movie.id]">
 				<div class="movie">
@@ -14,4 +15,5 @@
 			<img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
 		</div>
 	</div>
+	<button [disabled]="isInvalid('forward')" (click)="forward()"id = 'forward'>></button>
 </div>

@@ -11,8 +11,12 @@ import { Movie } from '../Movie';
 export class PopularMoviesComponent implements OnInit {
   data : Movie;
   service;
+  x:number;
+  y:number;
   constructor(private pservice: RequestApiService ) { 
     this.service = pservice; 
+    this.x = 0;
+    this.y = 5;
   }
 
   ngOnInit() {
@@ -21,5 +25,15 @@ export class PopularMoviesComponent implements OnInit {
       this.data = res;
     });
   }
-  
+  forward(){
+    this.x = this.x + 5;
+    this.y = this.y + 5;
+  }
+  back(){
+    this.x = this.x - 5;
+    this.y = this.y - 5;
+  }
+  isInvalid(button:string){
+    return (button === "back") ? (this.x == 0) ? true : false : ( this.y ==20 ) ? true : false; 
+  }
 }
