@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Movie } from './Movie';
 import { Cast } from './Cast';
+import { Genres } from './Genres';
 import { Observable, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
@@ -13,14 +14,14 @@ export class RequestApiService {
   //calls to tMDB API.
 
   constructor(private http: HttpClient) { }
-  getPopularMovies() {
+  getPopularMovies(): Observable<Movie[]>  {
     return this.http.get(this.url + 'trending/movie/week' + this.key).pipe(
       map((response: Movie[]) =>  response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
   }
-  getTopRatedMovies() {
+  getTopRatedMovies() : Observable<Movie[]> {
     return this.http.get(this.url + 'movie/top_rated' + this.key + '&language=en-US&page=1&region=US').pipe(
       map((response: Movie[]) =>  response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
@@ -44,6 +45,13 @@ export class RequestApiService {
   getCast(id: number): Observable<Cast[]> {
     return this.http.get(this.url + 'movie/' + id + '/credits' + this.key).pipe(
       map((response: Cast[]) => response as Cast[]), catchError(error => {
+        return throwError('yikes do more error stuff');
+      })
+    );
+  }
+  getGenres(): Observable<Genres[]> {
+    return this.http.get(this.url + 'genre/movie/list' + this.key + '&language=en-US').pipe(
+      map((response: Genres[]) => response as Genres[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
