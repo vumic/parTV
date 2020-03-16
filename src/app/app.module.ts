@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { RequestApiService } from './request-api.service';
 import { MovieDisplayComponent } from './movie-display/movie-display.component';
-import {HomePageComponent} from './home-page/home-page.component';
+import { HomePageComponent} from './home-page/home-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
