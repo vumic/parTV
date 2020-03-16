@@ -1,11 +1,18 @@
-<p>
-  random-movie works!
+
+
+<div id = "random" class = "container">
+<p id = "title">
+  Randomize a movie
 </p>
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
+<mat-form-field >
+  <mat-label>Choose Genre</mat-label>
+  <mat-select (selectionChange)=selectedGenre($event)>
+    <mat-option value= -1>None</mat-option>
+    <mat-option *ngFor="let genre of data.genres" [value]="genre.id">
+      {{genre.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
+<div><button  (click)="getMovie()">Randomize</button></div>
+
+</div>

@@ -1,4 +1,4 @@
-<span class="displayMovie">
+<div class="displayMovie">
   <h2 id="movie_label">Movie</h2>
   <div class="card">
     <span class="image">
@@ -6,7 +6,7 @@
       <img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}">
     </a>
     </span>
-    <span class="movie">
+    <span id = "movie_text" class="movie">
       <h2 id="mov_name">{{data?.title}}</h2>
       <p id="overview">Overview: <span>{{data?.overview}}</span></p>
       <p id="tagLine">Tagline: "{{data?.tagline}}"</p>
@@ -16,7 +16,7 @@
       <p id="budget">Budget: <span>${{data?.budget}}</span></p>
     </span>
   </div>
-</span>
+</div>
 
 <div class="displayCast">
   <h2 id="cast_label">Cast</h2>
@@ -34,3 +34,4 @@
     </div>
   </div>
 </div>
+<div id = "push"> </div>

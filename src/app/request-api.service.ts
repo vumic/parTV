@@ -14,30 +14,30 @@ export class RequestApiService {
   //calls to tMDB API.
 
   constructor(private http: HttpClient) { }
-  getPopularMovies(): Observable<Movie[]>  {
+  getPopularMovies(): Observable<Movie[]> {
     return this.http.get(this.url + 'trending/movie/week' + this.key).pipe(
-      map((response: Movie[]) =>  response as Movie[]), catchError(error => {
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
   }
-  getTopRatedMovies() : Observable<Movie[]> {
+  getTopRatedMovies(): Observable<Movie[]> {
     return this.http.get(this.url + 'movie/top_rated' + this.key + '&language=en-US&page=1&region=US').pipe(
-      map((response: Movie[]) =>  response as Movie[]), catchError(error => {
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
   }
   getNowPlaying(): Observable<Movie[]> {
     return this.http.get(this.url + 'movie/now_playing' + this.key + '&language=en-US&page=1&region=US').pipe(
-      map((response: Movie[]) =>  response as Movie[]), catchError(error => {
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
   }
   getMovie(id: number): Observable<Movie[]> {
     return this.http.get(this.url + 'movie/' + id + this.key + '&language=en-US').pipe(
-      map((response: Movie[]) =>  response as Movie[]), catchError(error => {
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
@@ -56,11 +56,24 @@ export class RequestApiService {
       })
     );
   }
-  searchQuery(query: string, page: number) : Observable<Movie[]> {
+  searchQuery(query: string, page: number): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.url + 'search/movie' + this.key + '&language=en-US&query=' + query + '&page=' + page + '&include_adult=false').pipe(
-      map((response: Movie[]) =>  response as Movie[]), catchError(error => {
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
         return throwError('yikes do more error stuff');
       })
     );
+  }
+
+  discover(genreID: number): Observable<Movie[]> {
+    let name = "";
+    let randomNum = Math.floor(Math.random() * 50) + 1;
+    if (genreID > 0) {
+        name = "&with_genres=" + genreID;
+    } return this.http.get<Movie[]>(this.url + 'discover/movie' + this.key + '&language=en-US &sort_by=popularity.desc&include_adult=false&include_video=false&page='+randomNum + name).pipe(
+      map((response: Movie[]) => response as Movie[]), catchError(error => {
+        return throwError('yikes do more error stuff');
+      })
+    );
+
   }
 }

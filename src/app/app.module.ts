@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatNativeDateModule} from '@angular/material/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,7 +21,7 @@ import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { RandomMovieComponent } from './random-movie/random-movie.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot([
+  imports:      [ MatSelectModule,MatFormFieldModule,BrowserAnimationsModule,MatNativeDateModule,BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot([
     {path: '', component: HomePageComponent },
     {path: 'movie/:movieID', component: MovieDisplayComponent},
     {path: 'search/:query/:page', component: SearchPageComponent},
@@ -26,7 +30,7 @@ import { RandomMovieComponent } from './random-movie/random-movie.component';
   ])],
   declarations: [ AppComponent, HeaderComponent, PopularMoviesComponent, MovieDisplayComponent,HomePageComponent, SearchPageComponent, AboutPageComponent, TopRatedComponent, NowPlayingComponent, RandomMovieComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [RequestApiService],
+  providers:  [RequestApiService],
   
 })
 export class AppModule { }

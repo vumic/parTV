@@ -4,8 +4,7 @@
 }
 .displayCast{
     position: relative;
-    top: 40px;
-    display: inline-block;
+    top: 200px;
 }
 .card img{
     position: absolute;
@@ -15,6 +14,11 @@
 #movie_label{ 
     text-align: center;
     font-size: 40px;
+}
+#movie_text{
+    font-size: 20px;
+    position:relative;
+    height: 400px;
 }
 #cast_label{ 
     position: relative;
@@ -53,4 +57,7 @@
     border: 2px black;
     padding: 20px;
     border:none;
+}
+#push{
+    height:200px;
 }

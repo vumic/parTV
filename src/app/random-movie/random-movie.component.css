@@ -1,0 +1,13 @@
+#random.container{
+    position: relative;
+    top: 40px;
+    display: block;
+    margin: 0 auto;
+    text-align : center;
+ 
+}
+
+#random.container p{
+    font-size: 30px;
+ 
+}
