@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestApiService } from '../request-api.service';
+import { AuthService } from '../auth.service';
 
 import { Cast } from '../Cast';
 import { Movie } from '../Movie';
@@ -16,7 +17,7 @@ export class MovieDisplayComponent implements OnInit {
   pservice;
   cast : Cast;
   genres = '';
-  constructor( private route: ActivatedRoute, private service: RequestApiService) {
+  constructor( private route: ActivatedRoute, private service: RequestApiService,public auth: AuthService) {
     this.pservice = service;
     
    }
@@ -39,6 +40,9 @@ export class MovieDisplayComponent implements OnInit {
        
       });
     });
+  }
+  addToWatchlist(){
+    console.log("adding this movie..." + this.movie);
   }
  
 }

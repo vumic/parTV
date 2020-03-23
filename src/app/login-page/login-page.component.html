@@ -1,18 +1,22 @@
-<p>login-page works!</p>
-<p>
-    <a routerLink="/user">Secret</a>
-</p>
-
 <div *ngIf="auth.user$ | async as user; else login">
-  <pre>
-    {{ user | json }}
-  </pre>
-  
-  <hr>
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
-
+  <div class="body">
+    <h1> Have a great day</h1>
+    <button class="button" (click)="auth.signOut()">Sign Out</button>
+  </div>
 </div>
 
 <ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+  <div class="body">
+    <h1> Please Login for more functionality for Par-TV</h1>
+    <ul>
+      <li>Create Watch lists</li>
+      <li>Create a party
+        <ul>
+          <li>Add friends to your party (they must have logged in with us)</li>
+          <li>See what movies you all want to watch</li>
+        </ul>
+      </li>
+    </ul>
+    <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+  </div>
 </ng-template>

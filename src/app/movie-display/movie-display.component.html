@@ -8,12 +8,15 @@
     </span>
     <span id = "movie_text" class="movie">
       <h2 id="mov_name">{{data?.title}}</h2>
-      <p id="overview">Overview: <span>{{data?.overview}}</span></p>
+      <p id="overview">Overview: {{data?.overview}}</p>
       <p id="tagLine">Tagline: "{{data?.tagline}}"</p>
-      <p id="rating">Rating: <span>{{data?.vote_average}} / 10</span></p>
-      <p id="genres">Genre: <span>{{genres}}</span></p>
-      <p id="runtime">Runtime: <span>{{data?.runtime}} minutes</span></p>
-      <p id="budget">Budget: <span>${{data?.budget}}</span></p>
+      <p id="rating">Rating: {{data?.vote_average}}/10</p>
+      <p id="genres">Genre: {{genres}}</p>
+      <p id="runtime">Runtime: {{data?.runtime}} minutes</p>
+      <p id="budget">Budget: ${{data?.budget}}</p>
+      <span *ngIf="auth.user$ | async as user">
+          <button class="button" (click)="addToWatchlist()">Add to Watchlist</button>
+      </span>
     </span>
   </div>
 </div>
