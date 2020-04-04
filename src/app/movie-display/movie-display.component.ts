@@ -5,11 +5,7 @@ import { AuthService } from '../auth.service';
 import { FirebaseApp, } from '@angular/fire';
 import { Cast } from '../Cast';
 import { Movie } from '../Movie';
-
 import { User } from '../user.model';
-import { flatMap } from 'rxjs/operators';
-
-
 
 @Component({
   selector: 'app-movie-display',
@@ -23,16 +19,12 @@ export class MovieDisplayComponent implements OnInit {
   cast: Cast;
   genres = '';
   movieAdded;
-  doit: boolean;
-  well;
   user: User;
-  d: MovieDisplayComponent;
+  
   subscription;
   constructor(private route: ActivatedRoute, private service: RequestApiService, public auth: AuthService, private FirebaseApp: FirebaseApp, ) {
     this.pservice = service;
     this.movieAdded = false;
-    this.doit = false;
-    this.well = null;
   }
 
   ngOnInit() {
@@ -72,7 +64,7 @@ export class MovieDisplayComponent implements OnInit {
 
   addToWatchlist() {
    
-    this.auth.addToWatchlist(this.movie);
+    this.auth.addToWatchlist(this.movie,this.data);
     this.movieAdded = true;
   }
 

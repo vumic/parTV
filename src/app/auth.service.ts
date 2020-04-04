@@ -60,20 +60,15 @@ export class AuthService {
       });
   }
 
-  async addToWatchlist(movieId) {
+  async addToWatchlist(movieId,data) {
     const credential = await this.afAuth.auth.currentUser;
     return this.afs.collection("users").doc(`${credential.uid}`).collection("watchlist").doc(`${movieId}`).set(
-      { movie: movieId }
+      { movie: data }
     );
   }
   async deleteFromWatchlist(movieId) {
     const credential = await this.afAuth.auth.currentUser;
     return this.afs.collection("users").doc(`${credential.uid}`).collection("watchlist").doc(`${movieId}`).delete();
-  }
-  async existsMovie(movieId) {
-    const credential = await this.afAuth.auth.currentUser;
-    const docRef = this.afs.collection("users").doc(`${credential.uid}`).collection("watchlist").doc(`${movieId}`);
-
   }
 
   async googleSignin() {
