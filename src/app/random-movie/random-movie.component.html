@@ -8,7 +8,7 @@
   <mat-label>Choose Genre</mat-label>
   <mat-select (selectionChange)=selectedGenre($event)>
     <mat-option value= -1>None</mat-option>
-    <mat-option *ngFor="let genre of data.genres" [value]="genre.id">
+    <mat-option *ngFor="let genre of data?.genres" [value]="genre.id">
       {{genre.name}}
     </mat-option>
   </mat-select>
