@@ -3,6 +3,7 @@
 <div *ngIf="auth.user$ | async as user; else login">
   <p id="popularTitle">
     {{user.displayName}}'s  Watchlist
+    <button class="button" (click)="auth.signOut()">Sign Out</button>
   </p>
   <div class="popDisplay">
   <div *ngFor="let movie of movies">
@@ -17,7 +18,7 @@
     </div>
   </div>
 </div>
-<button class="button" (click)="auth.signOut()">Sign Out</button>
+
 </div>
 
 <ng-template #login>

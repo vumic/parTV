@@ -13,14 +13,14 @@ export class UserProfileComponent {
   movieCollection: AngularFirestoreCollection<Movie>;
   movies;
 
-  constructor(public auth: AuthService, private afs: AngularFirestore,) { 
-  
+  constructor(public auth: AuthService, private afs: AngularFirestore, ) {
+
   }
 
   ngOnInit(): void {
-   this.auth.getWatchlist().subscribe(x => {
-    this.movies = x;
- })
+    this.auth.getWatchlist().subscribe(x => {
+      this.movies = x;
+    })
 
   }
 
