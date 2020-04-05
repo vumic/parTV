@@ -11,17 +11,17 @@ import { Observable } from 'rxjs';
 })
 export class UserProfileComponent {
   movieCollection: AngularFirestoreCollection<Movie>;
-  movies: Observable<Movie[]>
+  movies;
 
   constructor(public auth: AuthService, private afs: AngularFirestore,) { 
-
-
-   this.movieCollection = this.afs.collection<Movie>('items');
-   this.movies = this.movieCollection.valueChanges();
-
+  
   }
 
   ngOnInit(): void {
+   this.auth.getWatchlist().subscribe(x => {
+    this.movies = x;
+ })
+
   }
 
 

@@ -1,0 +1,73 @@
+#popularTitle{
+    text-align: center;
+    font-size: 40px;
+}
+ .popDisplay{
+    margin:15px auto;
+   
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .popDisplay .card{
+   
+    position: relative;
+    height: 270px;
+  
+  }
+  .popDisplay .card img{
+    height: 270px;
+  }
+  .popDisplay .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   
+    padding: 0px;
+
+  }
+ 
+ 
+  .popDisplay .movie p {
+    font-family: "Serif";
+    color: #4CA1AF;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #overview{
+    font-size: 10px;
+  }
+  
+  
+   .popDisplay .overlay h2, #rating{
+    background-color: rgba(134, 134, 134, 0.171);
+    visibility: hidden;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+    font-family: "Serif";
+    text-align: center;
+    width: auto;
+    font-size: 20px;
+    color: rgb(250, 249, 249);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+  }
+  .popDisplay .overlay:hover h2{
+    visibility: visible;
+  }
+  .popDisplay .overlay:hover #rating{
+    visibility: visible;
+  }
+  
+  
+  #button {
+    text-align: center;
+    align-items: center;  
+}

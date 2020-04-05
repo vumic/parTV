@@ -59,11 +59,10 @@ export class MovieDisplayComponent implements OnInit {
        this.auth.isInWatchlist(this.movie, user.uid);
        setTimeout(() => this.movieAdded = this.auth.u, 200);
     });
+    this.movieAdded = this.auth.u;
   };
 
-
   addToWatchlist() {
-   
     this.auth.addToWatchlist(this.movie,this.data);
     this.movieAdded = true;
   }

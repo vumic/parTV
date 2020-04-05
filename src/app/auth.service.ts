@@ -41,14 +41,15 @@ export class AuthService {
 
   }
 
-  async getWatchlist() {
-    const credential = await this.FirebaseApp.auth().currentUser.uid;
-    return this.afs.collection("users").doc(`${credential}`).collection('watchlist').snapshotChanges();
+   getWatchlist() {
+    const credential = this.FirebaseApp.auth().currentUser.uid;
+    return this.afs.collection("users").doc(`${credential}`).collection('watchlist').valueChanges();
   }
 
    isInWatchlist(movieID, uid) {
-    this.afs.collection('users').doc(`${uid}`).collection(`watchlist`, ref => ref.where('movie', "==", movieID))
+    this.afs.collection('users').doc(`${uid}`).collection(`watchlist`, ref => ref.where(`id`, "==", movieID))
       .snapshotChanges().subscribe(res => {
+        console.log("res: " + res );
         if (res.length > 0) {
           this.u = true;
           console.log("found: " + movieID + " " + uid);
@@ -63,7 +64,18 @@ export class AuthService {
   async addToWatchlist(movieId,data) {
     const credential = await this.afAuth.auth.currentUser;
     return this.afs.collection("users").doc(`${credential.uid}`).collection("watchlist").doc(`${movieId}`).set(
-      { movie: data }
+      { adult: data.adult,
+        budget : data.budget,
+        id : movieId,
+        original_title: data.original_title,
+        popularity: data.popularity,
+        release_date: data.release_date,
+        revenue: data.revenue,
+        title: data.title,
+        vote_average: data.vote_average,
+        vote_count: data.vote_count,
+        poster_path: data.poster_path
+}
     );
   }
   async deleteFromWatchlist(movieId) {

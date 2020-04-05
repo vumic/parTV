@@ -46,10 +46,11 @@
 }
 
 .CM{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto; /* 2 COL LAYOUT */
-   
+    flex-wrap: wrap;
 }
 .cast_card{
     position: relative;
