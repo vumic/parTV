@@ -6,8 +6,10 @@
     text-align : center;
  
 }
-
-#random.container p{
+.push{
+    height: 40px;
+}
+#random.container h1{
     font-size: 30px;
  
 }

@@ -14,7 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-
+//components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
@@ -29,6 +29,7 @@ import { RandomMovieComponent } from './random-movie/random-movie.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { CreateAPartyComponent } from './create-a-party/create-a-party.component';
 
 const config = {
   apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
@@ -60,7 +61,8 @@ const config = {
       { path: 'about', component: AboutPageComponent },
       { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginPageComponent },
-      { path: 'random', component: RandomMovieComponent }
+      { path: 'random', component: RandomMovieComponent },
+      { path: 'party', component: CreateAPartyComponent }
     ])],
   declarations: [
     AppComponent,
@@ -74,7 +76,8 @@ const config = {
     NowPlayingComponent,
     UserProfileComponent,
     RandomMovieComponent,
-    LoginPageComponent],
+    LoginPageComponent,
+    CreateAPartyComponent],
   bootstrap: [AppComponent],
   providers: [RequestApiService],
 

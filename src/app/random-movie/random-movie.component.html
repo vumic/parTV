@@ -1,18 +1,19 @@
-
-
-<div id = "random" class = "container">
-<p id = "title">
-  Randomize a movie
-</p>
-<mat-form-field >
-  <mat-label>Choose Genre</mat-label>
-  <mat-select (selectionChange)=selectedGenre($event)>
-    <mat-option value= -1>None</mat-option>
-    <mat-option *ngFor="let genre of data?.genres" [value]="genre.id">
-      {{genre.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<div><button  (click)="getMovie()">Randomize</button></div>
-
+<div id="random" class="container">
+  <h1 id="title">
+    Randomize a movie
+  </h1>
+  <p> Can't figure out what to watch? ParTV will randomize a movie in your choice genre.</p>
+  <div class = "push"></div>
+  <mat-form-field>
+    <mat-label>Choose Genre</mat-label>
+    <mat-select (selectionChange)=selectedGenre($event)>
+      <mat-option value=-1>None</mat-option>
+      <mat-option *ngFor="let genre of data?.genres" [value]="genre.id">
+        {{genre.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class = "push"></div>
+  <div><button (click)="getMovie()">Randomize</button></div>
+  <div class = "push"></div>
 </div>

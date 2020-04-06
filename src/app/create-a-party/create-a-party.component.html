@@ -1,0 +1,106 @@
+<div class="push"></div>
+<div class="instr">
+    <h1>Create A Party!</h1>
+    <p>Not sure what your friends want to watch? ParTV allows you to see what everyone wants to watch.
+        (assuming everyone has an account here).
+    </p>
+    <h2>How to create a party?</h2>
+    <p>
+        Please insert the email of the person you want to add (up to 3):
+    </p>
+</div>
+
+<div class="search">
+    <input (input)="keyword1=$event.target.value" id="textbox1" type="text" placeholder="Enter email...">
+    <button (click)="addPerson(1)" id="searchButton" type="submit">add</button>
+    <input (input)="keyword2=$event.target.value" id="textbox2" type="text" placeholder="Enter email...">
+    <button (click)="addPerson(2)" id="searchButton" type="submit">add</button>
+    <input (input)="keyword3=$event.target.value" id="textbox3" type="text" placeholder="Enter email...">
+    <button (click)="addPerson(3)" id="searchButton" type="submit">add</button>
+</div>
+
+<div class="push"></div>
+<div class = "merger"><button (click)="merge()" id="searchButton" type="submit">Merge</button></div>
+<div class="push"></div>
+
+<div *ngIf="finalin">
+    <p class = "label"> MERGED LIST </p>
+    <div class="popDisplay">
+        <div *ngFor="let movie of finalWL">
+            <div class="card">
+                <span a class="overlay" [routerLink]="['/movie',movie.id]">
+                    <span class="movie">
+                        <h2>{{movie.title}}</h2>
+                        <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                    </span>
+                </span>
+                <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="auth.user$ | async as user;">
+    <p class = "label">{{user.displayName}}'s Current List: </p>
+    <div class="popDisplay">
+        <div *ngFor="let movie of yourWL">
+            <div class="card">
+                <span a class="overlay" [routerLink]="['/movie',movie.id]">
+                    <span class="movie">
+                        <h2>{{movie.title}}</h2>
+                        <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                    </span>
+                </span>
+                <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="onein">
+        <p class = "label">{{keyword1}}'s Current List: </p>
+        <div class="popDisplay">
+            <div *ngFor="let movie of WL1">
+                <div class="card">
+                    <span a class="overlay" [routerLink]="['/movie',movie.id]">
+                        <span class="movie">
+                            <h2>{{movie.title}}</h2>
+                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                        </span>
+                    </span>
+                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="twoin">
+        <p class = "label">{{keyword2}}'s Current List: </p>
+        <div class="popDisplay">
+            <div *ngFor="let movie of WL2">
+                <div class="card">
+                    <span a class="overlay" [routerLink]="['/movie',movie.id]">
+                        <span class="movie">
+                            <h2>{{movie.title}}</h2>
+                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                        </span>
+                    </span>
+                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="threein">
+        <p class = "label">{{keyword3}}'s Current List: </p>
+        <div class="popDisplay">
+            <div *ngFor="let movie of WL3">
+                <div class="card">
+                    <span a class="overlay" [routerLink]="['/movie',movie.id]">
+                        <span class="movie">
+                            <h2>{{movie.title}}</h2>
+                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                        </span>
+                    </span>
+                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

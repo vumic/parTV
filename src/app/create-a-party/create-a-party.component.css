@@ -1,4 +1,40 @@
-#popularTitle{
+h1 {
+    font-size :  40px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 15px;
+}
+.instr{
+    text-align : center;
+}
+input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+  }
+.search{
+    text-align:center;
+}
+.push{
+    height: 20px;
+}
+.merger{
+  text-align:center;
+}
+button {
+
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: 1px solid #4CA1AF;
+    cursor: pointer;
+    background: #4CA1AF;
+  }
+
+  #popularTitle{
     text-align: center;
     font-size: 40px;
 }
@@ -63,9 +99,8 @@
   .popDisplay .overlay:hover #rating{
     visibility: visible;
   }
-  
-  
-  #button {
-    text-align: center;
-    align-items: center;  
-}
+ .label {
+   text-align : center;
+   font-size : 30px;
+   font-weight: bold;
+ }

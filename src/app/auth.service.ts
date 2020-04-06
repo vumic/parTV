@@ -19,13 +19,14 @@ export class AuthService {
   user$: Observable<any>;
   userFull: String;
   userLoaded: boolean;
-  u ;
+  u;
+  WL1;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
     private FirebaseApp: FirebaseApp,
-  
+
   ) {
     this.userLoaded = false;
 
@@ -41,32 +42,56 @@ export class AuthService {
 
   }
 
-   getWatchlist() {
+  getUser(email) {
+    this.afs.collection('users', ref => ref.where(`email`, "==", email))
+      .snapshotChanges().subscribe(res => {
+        console.log("res: " + res);
+        if (res.length > 0) {
+          res.forEach(e => {
+            let id = e.payload.doc.id;
+            console.log("ID: ", id);
+            this.getWatchlist2(id).subscribe(x => {
+                this.WL1 = x;
+            });
+          });
+        }
+        else {
+          this.WL1 = null;
+          console.log("did not find: " + email);
+        }
+      });
+
+  }
+  getWatchlist2(uid) {
+    return this.afs.collection("users").doc(`${uid}`).collection('watchlist').valueChanges();
+  }
+  getWatchlist(uid) {
     const credential = this.FirebaseApp.auth().currentUser.uid;
-    return this.afs.collection("users").doc(`${credential}`).collection('watchlist').valueChanges();
+    return this.afs.collection("users").doc(`${uid}`).collection('watchlist').valueChanges();
   }
 
-   isInWatchlist(movieID, uid) {
+  isInWatchlist(movieID, uid) {
     this.afs.collection('users').doc(`${uid}`).collection(`watchlist`, ref => ref.where(`id`, "==", movieID))
       .snapshotChanges().subscribe(res => {
-        console.log("res: " + res );
+        console.log("res: " + res);
         if (res.length > 0) {
           this.u = true;
           console.log("found: " + movieID + " " + uid);
         }
         else {
-        this.u = false;
-        console.log("did not find: " + movieID + " " + uid);
+          this.u = false;
+          console.log("did not find: " + movieID + " " + uid);
         }
       });
   }
 
-  async addToWatchlist(movieId,data) {
+  async addToWatchlist(movieId, data) {
     const credential = await this.afAuth.auth.currentUser;
     return this.afs.collection("users").doc(`${credential.uid}`).collection("watchlist").doc(`${movieId}`).set(
-      { adult: data.adult,
-        budget : data.budget,
-        id : movieId,
+      {
+        adult: data.adult,
+        budget: data.budget,
+        id: movieId,
         original_title: data.original_title,
         popularity: data.popularity,
         release_date: data.release_date,
@@ -75,7 +100,7 @@ export class AuthService {
         vote_average: data.vote_average,
         vote_count: data.vote_count,
         poster_path: data.poster_path
-}
+      }
     );
   }
   async deleteFromWatchlist(movieId) {

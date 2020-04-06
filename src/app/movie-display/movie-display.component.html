@@ -26,15 +26,16 @@
 <div class="displayCast">
   <h2 id="cast_label">Cast</h2>
   <div class="CM">
-    <div *ngFor="let member of cast?.cast  | slice:0:14; let i=index;">
+    <div *ngFor="let member of cast?.cast ">
       <div class="cast_card">
         <div class="cast_image">
-          <img onerror="this.onerror=null; this.src='assets/no_img_cast.png'" src="{{'http://image.tmdb.org/t/p/w154' + member?.profile_path}}">
-        </div>
-        <span class="cast">
+          <span class="cast">
           <p id="cast_name">{{member?.name}}</p>
           <p id="character">Character: <span>{{member.character}}</span></p>
         </span>
+          <img onerror="this.onerror=null; this.src='assets/no_img_cast.png'" src="{{'http://image.tmdb.org/t/p/w154' + member?.profile_path}}">
+        </div>
+        
       </div>
     </div>
   </div>

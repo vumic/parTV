@@ -1,10 +1,12 @@
-.displayMovies{ 
+.displayMovie{ 
     position: relative;
     width: 100%;
+    height: 600px;
+    background-color: rgba(134, 134, 134, 0.171);
 }
 .displayCast{
     position: relative;
-    top: 200px;
+    top: 100px;
 }
 .card img{
     position: absolute;
@@ -44,8 +46,25 @@
     font-family: "Serif";
     color: #4CA1AF;
 }
-
+.cast {
+    position: absolute;
+    width: 154px;
+    height: 231px;
+    padding: 0px;
+    font-family: "Serif";
+    text-align: center;
+    font-size: 15px;
+    color: rgb(250, 249, 249);
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+    visibility: hidden;
+}
 .CM{
+    margin:15px auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,6 +78,10 @@
     padding: 20px;
     border:none;
 }
+.cast_image:hover .cast{
+    visibility: visible;
+}
+
 #push{
     height:200px;
 }

@@ -1,23 +1,21 @@
-
-
 <div *ngIf="auth.user$ | async as user; else login">
   <p id="popularTitle">
-    {{user.displayName}}'s  Watchlist
+    {{user.displayName}}'s Watchlist
     <button class="button" (click)="auth.signOut()">Sign Out</button>
   </p>
   <div class="popDisplay">
-  <div *ngFor="let movie of movies">
-    <div class="card" >
-      <span a class="overlay" [routerLink]= "['/movie',movie.id]">
-        <span class="movie">
-          <h2>{{movie.title}}</h2>
-          <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+    <div *ngFor="let movie of movies">
+      <div class="card">
+        <span a class="overlay" [routerLink]="['/movie',movie.id]">
+          <span class="movie">
+            <h2>{{movie.title}}</h2>
+            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+          </span>
         </span>
-      </span>
-      <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+        <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 
