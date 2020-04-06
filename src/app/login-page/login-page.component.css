@@ -1,13 +1,35 @@
 .body {
-    position: relative;
 	font-style:italic;
-    display: inline-block;
-    margin: auto;
     text-align: center;
 
 }
-
+p{
+    font-size: 20px;
+}
+h1{
+    font-size : 30px;
+    font-weight :bold;
+}
+.push {
+    height : 40px;
+}
+.list {
+    display:inline-block;
+    text-align: center;
+}
 ul {
+    font-size : 20px;
     text-align: left;
     list-style-position: inside;
+}
+button{
+    width: 150px;
+    height: 75px;
+    border-radius: 2px;
+    padding: 6px;
+    font-weight : bold;
+    font-size: 17px;
+    border: 1px solid #4CA1AF;
+    cursor: pointer;
+    background: #4CA1AF;
 }

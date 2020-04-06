@@ -1,62 +1,64 @@
 #popularTitle{
-    text-align: center;
-    font-size: 40px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
 }
- .popDisplay{
-    margin:15px auto;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s ease;
-    position: relative;
-  }
-  .popDisplay .card{
-    margin: 0px 5px;
-    position: relative;
-    
-    height: 270px;
-    transition: 0.5s ease;
-  }
-  .popDisplay .card img{
-    height: 270px;
-  }
-  .popDisplay .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.8);
-    transition: .3s ease-in-out;
-    padding: 0px;
-    transform: translatey(-270px);
-  }
- 
-  .popDisplay .movie p {
-    font-family: "Serif";
-    color: #4CA1AF;
-    font-size: 14px;
-    text-align: center;
-  }
+.push {
+height :30px;
+}
+.popDisplay{
+  margin:15px auto;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease;
+  position: relative;
+}
+.popDisplay .card{
+  margin: 0px 5px;
+  position: relative;
+  height: 270px;
+  transition: 0.5s ease;
+}
+.popDisplay .card img{
+  height: 270px;
+}
+.popDisplay .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  transition: .3s ease-in-out;
+  padding: 0px;
+  transform: translatey(-270px);
+  text-decoration: none;
+}
 
-  #overview{
-    font-size: 10px;
-  }
-  #rating{
-      color:rgb(207, 225, 226);
-  }
+.popDisplay .movie p {
+  color: #4CA1AF;
+  font-size: 14px;
+  text-align: center;
+}
 
-  .popDisplay .overlay h2{
-    margin:10px;
-    font-family: "Serif";
-    text-align: center;
-    width: auto;
-    font-size: 20px;
-    color: rgb(207, 225, 226);
-  }
-  .popDisplay .card:hover .overlay{
-    transform:translatey(0px)
-  }
-  
+#overview{
+  font-size: 10px;
+}
+#rating{
+    color:rgb(207, 225, 226);
+}
+
+.popDisplay .overlay h2{
+  margin:10px;
+  font-weight:bold;
+  text-align: center;
+  width: auto;
+  font-size: 20px;
+  color: rgb(207, 225, 226);
+}
+.popDisplay .card:hover .overlay{
+  transform:translatey(0px)
+}

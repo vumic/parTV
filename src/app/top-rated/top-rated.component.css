@@ -1,6 +1,10 @@
 #popularTitle{
     text-align: center;
     font-size: 40px;
+    font-weight: bold;
+}
+.push {
+  height :30px;
 }
  .popDisplay{
     margin:15px auto;
@@ -31,10 +35,10 @@
     transition: .3s ease-in-out;
     padding: 0px;
     transform: translatey(-270px);
+    text-decoration: none;
   }
  
   .popDisplay .movie p {
-    font-family: "Serif";
     color: #4CA1AF;
     font-size: 14px;
     text-align: center;
@@ -49,7 +53,7 @@
 
   .popDisplay .overlay h2{
     margin:10px;
-    font-family: "Serif";
+    font-weight:bold;
     text-align: center;
     width: auto;
     font-size: 20px;

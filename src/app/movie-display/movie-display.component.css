@@ -4,6 +4,9 @@
     height: 600px;
     background-color: rgba(134, 134, 134, 0.171);
 }
+.push {
+    height : 40px;
+}
 .displayCast{
     position: relative;
     top: 100px;
@@ -43,7 +46,7 @@
 #mov_name{
     text-align: center;
     font-size: 40px;
-    font-family: "Serif";
+    font-weight: bold;
     color: #4CA1AF;
 }
 .cast {
@@ -51,7 +54,6 @@
     width: 154px;
     height: 231px;
     padding: 0px;
-    font-family: "Serif";
     text-align: center;
     font-size: 15px;
     color: rgb(250, 249, 249);
@@ -84,4 +86,15 @@
 
 #push{
     height:200px;
+}
+button{
+    width: 150px;
+    height: 50px;
+    border-radius: 2px;
+    padding: 6px;
+    font-weight : bold;
+    font-size: 17px;
+    border: 1px solid #4CA1AF;
+    cursor: pointer;
+    background: #4CA1AF;
 }

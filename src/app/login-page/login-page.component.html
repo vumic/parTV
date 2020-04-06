@@ -1,13 +1,30 @@
 <div *ngIf="auth.user$ | async as user; else login">
   <div class="body">
-    <h1> Have a great day</h1>
+    <div class = "push"></div>
+    <h1> Welcome to Par-TV, {{user.displayName}}</h1>
+    <div class = "push"></div>
+    <div class = "list">
+      <p>You can now..</p>
+      <ul>
+        <li>Create Watch lists</li>
+        <li>Create a party
+          <ul>
+            <li>Add friends to your party (they must have logged in with us)</li>
+            <li>See what movies you all want to watch</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class = "push"></div>
     <button class="button" (click)="auth.signOut()">Sign Out</button>
   </div>
 </div>
 
 <ng-template #login>
   <div class="body">
+    <div class = "push"></div>
     <h1> Please Login for more functionality for Par-TV</h1>
+    <div class = "list">
     <ul>
       <li>Create Watch lists</li>
       <li>Create a party
@@ -17,6 +34,8 @@
         </ul>
       </li>
     </ul>
+  </div>
+    <div class = "push"></div>
     <button class="button" (click)="auth.googleSignin()">Login with Google</button>
   </div>
 </ng-template>

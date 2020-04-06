@@ -1,6 +1,10 @@
 #popularTitle{
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.push{
+    height : 40px;
 }
  .popDisplay{
     margin:15px auto;
@@ -30,7 +34,7 @@
  
  
   .popDisplay .movie p {
-    font-family: "Serif";
+    
     color: #4CA1AF;
     font-size: 14px;
     text-align: center;
@@ -49,7 +53,7 @@
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
-    font-family: "Serif";
+
     text-align: center;
     width: auto;
     font-size: 20px;
@@ -64,8 +68,19 @@
     visibility: visible;
   }
   
+  .button {
+    display: block;
   
-  #button {
-    text-align: center;
-    align-items: center;  
-}
+    margin: auto;
+ 
+        width: 150px;
+        height: 75px;
+        border-radius: 2px;
+        padding: 6px;
+        font-weight : bold;
+        font-size: 17px;
+        border: 1px solid #4CA1AF;
+        cursor: pointer;
+        background: #4CA1AF;
+    
+  }

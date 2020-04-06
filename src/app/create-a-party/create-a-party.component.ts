@@ -12,28 +12,19 @@ export class CreateAPartyComponent implements OnInit {
   keyword2: string;
   keyword3: string;
   subscription;
-  WL1;
-  WL2;
-  WL3;
-  yourWL;
-  onein;
-  twoin;
-  threein;
-  finalWL;
-  finalin;
+  WL: any[];
+  in: boolean[];
   user: User;
   constructor(public auth: AuthService, private afs: AngularFirestore, ) {
-    this.onein = false;
-    this.twoin = false;
-    this.threein = false;
-    this.finalin = false;
+    this.in = new Array(4).fill(false);
+    this.WL = [];
   }
 
   ngOnInit(): void {
     this.subscription = this.auth.user$.subscribe(async (user) => {
       this.user = user;
       this.auth.getWatchlist(this.user.uid).subscribe(x => {
-        this.yourWL = x;
+        this.WL[0] = x;
       })
     });
   }
@@ -46,51 +37,52 @@ export class CreateAPartyComponent implements OnInit {
     var diffs = [];
     var diffs2 = [];
     var diffs3 = [];
-    if (this.onein == true && this.yourWL) {
-      for (var key in this.yourWL) {
-        for (var obj in this.WL1) {
-          if (this.yourWL[key].id == this.WL1[obj].id) {
-            diffs.push(this.yourWL[key]);
+    if (this.in[1] == true && this.WL[1]) {
+      for (var key in this.WL[0]) {
+        for (var obj in this.WL[1]) {
+          if (this.WL[0][key].id == this.WL[1][obj].id) {
+            diffs.push(this.WL[0][key]);
+            console.log(diffs);
           }
         }
       }
-      this.finalWL = diffs;
-      if (this.twoin == true && this.WL2) {
+      this.WL[4] = diffs;
+      if (this.in[2] == true && this.WL[2]) {
         for (var key in diffs) {
-          for (var obj in this.WL2) {
-            if (diffs[key].id == this.WL2[obj].id) {
+          for (var obj in this.WL[2]) {
+            if (diffs[key].id == this.WL[2][obj].id) {
               diffs2.push(diffs[key]);
             }
           }
         }
-        this.finalWL = diffs2;
+        this.WL[4] = diffs2;
       }
-      if (this.threein == true && this.WL3) {
+      if (this.in[3] == true && this.WL[3]) {
         for (var key in diffs2) {
-          for (var obj in this.WL3) {
-            if (diffs2[key].id == this.WL3[obj].id) {
+          for (var obj in this.WL[3]) {
+            if (diffs2[key].id == this.WL[3][obj].id) {
               diffs3.push(diffs2[key]);
             }
           }
         }
-        this.finalWL = diffs3;
+        this.WL[4] = diffs3;
       }
-      this.finalin = true;
+      this.in[4] = true;
     }
   }
 
   addPerson(p) {
     if ((p == 1) && this.keyword1) {
       this.auth.getUser(this.keyword1);
-      setTimeout(() => (this.WL1 = this.auth.WL1, this.onein = true), 400);
+      setTimeout(() => ( this.WL[1] = this.auth.WL1,this.in[1] = true), 400);
     }
     if ((p == 2) && this.keyword2) {
       this.auth.getUser(this.keyword2);
-      setTimeout(() => (this.WL2 = this.auth.WL1, this.twoin = true), 400);
+      setTimeout(() => ( this.WL[2] = this.auth.WL1,this.in[2] = true), 400);
     }
     if ((p == 3) && this.keyword3) {
       this.auth.getUser(this.keyword3);
-      setTimeout(() => (this.WL3 = this.auth.WL1, this.threein = true), 400);
+      setTimeout(() => ( this.WL[3] = this.auth.WL1,this.in[3] = true), 400);
     }
   }
 }
