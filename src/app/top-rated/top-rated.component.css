@@ -1,65 +1,87 @@
 #popularTitle{
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
 }
-.push {
-  height :30px;
+.push{
+  height: 40px;
 }
- .popDisplay{
-    margin:15px auto;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s ease;
-    position: relative;
-  }
-  .popDisplay .card{
-    margin: 0px 5px;
-    position: relative;
-    height: 270px;
-    transition: 0.5s ease;
-  }
-  .popDisplay .card img{
-    height: 270px;
-  }
-  .popDisplay .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.8);
-    transition: .3s ease-in-out;
-    padding: 0px;
-    transform: translatey(-270px);
-    text-decoration: none;
-  }
- 
-  .popDisplay .movie p {
-    color: #4CA1AF;
-    font-size: 14px;
-    text-align: center;
-  }
+.popDisplay{
+  margin:15px auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+.popDisplay .card{
+  position: relative;
+  height: 270px;
+}
+.popDisplay .card img{
+  height: 270px;
+}
+.popDisplay .overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  text-decoration: none;
+}
+.popDisplay h2{
+  color: #4CA1AF;
+  text-decoration: none;
+}
 
-  #overview{
-    font-size: 10px;
-  }
-  #rating{
-      color:rgb(207, 225, 226);
-  }
+.popDisplay .movie p {
+  color: #4CA1AF;
+  font-size: 14px;
+  text-align: center;
+}
 
-  .popDisplay .overlay h2{
-    margin:10px;
-    font-weight:bold;
-    text-align: center;
-    width: auto;
-    font-size: 20px;
-    color: rgb(207, 225, 226);
-  }
-  .popDisplay .card:hover .overlay{
-    transform:translatey(0px)
-  }
-  
+#overview{
+  font-size: 10px;
+}
+
+.popDisplay .overlay h2, #rating, #overview{
+  visibility: hidden;
+  text-align: center;
+  width: auto;
+  text-decoration: none;
+}
+.popDisplay .overlay:hover{
+  transition: .3s ease-in-out;
+  background-color: rgba(0,0,0,.8);
+}
+.popDisplay .movie p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.popDisplay .overlay:hover h2{
+  text-decoration: none;
+  visibility: visible;
+}
+.popDisplay .overlay:hover #overview{
+  text-decoration: none;
+  color: #4CA1AF;
+  visibility: visible;
+}
+.popDisplay .overlay:hover #ov{
+  text-decoration: none;
+  color: white;
+  visibility: visible;
+}
+.popDisplay .overlay:hover #rating{
+  text-decoration: none;
+  visibility: visible;
+  color: #4CA1AF;
+  font-size: 14px;
+  text-align: center;
+}
+.label {
+ text-align : center;
+ font-size : 30px;
+ font-weight: bold;
+}

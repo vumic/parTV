@@ -34,6 +34,6 @@ export class PopularMoviesComponent implements OnInit {
     this.y = this.y - 5;
   }
   isInvalid(button:string){
-    return (button === "back") ? (this.x == 0) ? true : false : ( this.y ==20 ) ? true : false; 
+    return (button === "back") ? (this.x == 0) ? true : false : ( this.y == 20 ) ? true : false; 
   }
 }

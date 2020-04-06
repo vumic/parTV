@@ -58,19 +58,23 @@
   }
 
   #overview{
+    color: #4CA1AF;
     font-size: 10px;
   }
+  #ov{
+    color:white;
+  }
   #rating{
-      color:rgb(207, 225, 226);
+    font-size: 14px;
+    color: #4CA1AF;
   }
 
   .overlay h2{
     margin:10px;
-   
     text-align: center;
     width: auto;
     font-size: 20px;
-    color: rgb(207, 225, 226);
+    color: #4CA1AF;
   }
   .card:hover .overlay{
     display: block;

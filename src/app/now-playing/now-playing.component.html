@@ -10,8 +10,8 @@
 			<a class="overlay" [routerLink]= "['/movie',movie.id]">
 				<div class="movie">
 					<h2>{{movie.title}}</h2>
-					<p id="overview"><strong>Overview:</strong> <span>{{movie.overview}}</span></p>
-					<p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+					<p id="overview">Overview: <span id = "ov">{{movie.overview}}</span></p>
+					<p id="rating">Rating: <span> {{movie.vote_average}} / 10</span></p>
 				</div>
 			</a>
 			<img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">

@@ -4,7 +4,7 @@
   <div class="card">
     <span class="image">
       <a href="https://www.imdb.com/title/{{data?.imdb_id}}/" target="_blank">
-      <img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}">
+      <img src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}" onerror="this.onerror=null; this.src='assets/no_img_full.png'" >
     </a>
     </span>
     <span id = "movie_text" class="movie">
@@ -34,7 +34,7 @@
           <p id="cast_name">{{member?.name}}</p>
           <p id="character">Character: <span>{{member.character}}</span></p>
         </span>
-          <img onerror="this.onerror=null; this.src='assets/no_img_cast.png'" src="{{'http://image.tmdb.org/t/p/w154' + member?.profile_path}}">
+          <img src="{{'http://image.tmdb.org/t/p/w154/' + member?.profile_path}}"onerror="this.onerror=null; this.src='assets/no_img_cast.png'" >
         </div>
         
       </div>
