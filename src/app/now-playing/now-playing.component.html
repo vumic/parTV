@@ -2,7 +2,6 @@
 <p id="popularTitle">
 	NOW PLAYING
 </p>
-<div class = "push"></div>
 <div class="popDisplay">
 	<button [disabled]="isInvalid('back')" (click)="back()" id = 'back' ><</button>
 	<div *ngFor="let movie of data?.results | slice:x:y; let i=index;">

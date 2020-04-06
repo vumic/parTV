@@ -15,9 +15,27 @@
   position: relative;
   flex-wrap: wrap;
 }
+@media only screen and (max-device-width: 480px) {
+button {
+  display: none;
+}
+}
+button{
+  width: 40px;
+  height: 270px;
+  border-radius: 2px;
+  padding: 6px;
+  font-weight : bold;
+  font-size: 17px;
+  border: 1px solid #4CA1AF;
+  cursor: pointer;
+  background: #4CA1AF;
+}
 .popDisplay .card{
   position: relative;
   height: 270px;
+  margin-left:5px;
+  margin-right:5px;
 }
 .popDisplay .card img{
   height: 270px;

@@ -1,5 +1,7 @@
 .displayMovie{ 
     position: relative;
+    display: flex;
+    flex-wrap:wrap;
     width: 100%;
     height: 600px;
     background-color: rgba(134, 134, 134, 0.171);
@@ -12,10 +14,18 @@
     top: 100px;
 }
 .card img{
-    position: absolute;
+    display: flex;
+    flex-wrap:wrap;
+    position: relative;
     padding: 20px;
     left: 0%;
   }
+
+  @media only screen and (max-device-width: 480px) {
+    .card img{
+      display: none;
+    }
+    }
 #movie_label{ 
     text-align: center;
     font-size: 40px;
@@ -32,16 +42,12 @@
 }
 .card{
     position: relative;
-    display: inline-block;
-    width:50%;
-    border:none;
+    display: flex;
 }
 
 .card .movie {
-    position:relative;
-    left:400px;
     padding: 20px;
-    width: 50%;
+    width: 100%;
 }
 #mov_name{
     text-align: center;

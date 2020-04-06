@@ -16,7 +16,7 @@ export class NowPlayingComponent implements OnInit {
   constructor(private pservice: RequestApiService ) { 
    this.service = pservice;
    this.x = 0;
-   this.y = 5;
+   this.y = 4;
   }
   ngOnInit() {
     this.service.getNowPlaying().subscribe((res: Movie) => {
@@ -25,12 +25,12 @@ export class NowPlayingComponent implements OnInit {
     });
   }
   forward(){
-    this.x = this.x + 5;
-    this.y = this.y + 5;
+    this.x = this.x + 4;
+    this.y = this.y + 4;
   }
   back(){
-    this.x = this.x - 5;
-    this.y = this.y - 5;
+    this.x = this.x - 4;
+    this.y = this.y - 4;
   }
   isInvalid(button:string){
     return (button === "back") ? (this.x == 0) ? true : false : ( this.y ==20 ) ? true : false; 

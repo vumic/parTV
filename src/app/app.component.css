@@ -1,6 +1,4 @@
-p {
-  font-family: Lato;
-}
+
 .wrapper {
   min-height: 100%;
 
@@ -8,13 +6,28 @@ p {
   /* But also accounting for potential margin-bottom of last child */
   margin-bottom: -50px;
 }
-.footer,
-.push {
+.footer, .push {
   height: 150px;
 }
+.push2{
+  height: 25px;
+}
 .footer img{
- 
-  height: 100px;
+  width : 200px;
+  height : 35px;
+  margin-left: 20px;
+  text-align : center;
+}
+#githubLogo{
+  width : 75px;
+  height : 30px;
+  text-align : center;
+}
+#name {
+  color: #4CA1AF;
+  margin-left: 25px;
+  font-size: 10px;
+  font-weight: bold;
 }
 .footer{
   width:100%;
