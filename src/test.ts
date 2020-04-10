@@ -4,7 +4,7 @@ import {
     BrowserDynamicTestingModule,
     platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-
+import { NgModule } from '@angular/core';
 declare const require: any;
 
 // First, initialize the Angular testing environment.
