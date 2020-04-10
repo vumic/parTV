@@ -8,12 +8,12 @@
     </span>
     <span id = "movie_text" class="movie">
       <h2 id="mov_name">{{data?.title}}</h2>
-      <p id="overview">Overview: {{data?.overview}}</p>
-      <p id="tagLine">Tagline: "{{data?.tagline}}"</p>
-      <p id="rating">Rating: {{data?.vote_average}}/10</p>
-      <p id="genres">Genre: {{genres}}</p>
-      <p id="runtime">Runtime: {{data?.runtime}} minutes</p>
-      <p id="budget">Budget: ${{data?.budget}}</p>
+      <p id="overview"><span class = "m-bold">Overview:</span> {{data?.overview}}</p>
+      <p id="tagLine"><span class = "m-bold">Tagline:</span> "{{data?.tagline}}"</p>
+      <p id="rating"><span class = "m-bold">Rating:</span> {{data?.vote_average}}/10</p>
+      <p id="genres"><span class = "m-bold">Genre:</span> {{genres}}</p>
+      <p id="runtime"><span class = "m-bold">Runtime:</span> {{data?.runtime}} minutes</p>
+      <p id="budget"><span class = "m-bold">Budget:</span> ${{data?.budget}}</p>
       <span *ngIf="auth.user$ | async as user">
         <span *ngIf="!movieAdded; else delete">
           <button class="button" (click)="addToWatchlist()">Add to Watchlist</button>

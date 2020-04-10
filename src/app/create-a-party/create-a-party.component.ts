@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {RouterModule} from '@angular/router'
+
 @Component({
   selector: 'app-create-a-party',
   templateUrl: './create-a-party.component.html',
@@ -15,7 +16,7 @@ export class CreateAPartyComponent implements OnInit {
   WL: any[];
   in: boolean[];
   user: User;
-  constructor(public auth: AuthService, private afs: AngularFirestore, ) {
+  constructor(public auth: AuthService) {
     this.in = new Array(4).fill(false);
     this.WL = [];
   }
@@ -74,15 +75,16 @@ export class CreateAPartyComponent implements OnInit {
   addPerson(p) {
     if ((p == 1) && this.keyword1) {
       this.auth.getUser(this.keyword1);
-      setTimeout(() => ( this.WL[1] = this.auth.WL1,this.in[1] = true), 400);
+      setTimeout(() => ( this.WL[1] = this.auth.WL1, this.in[1] = true), 1000);
+
     }
     if ((p == 2) && this.keyword2) {
       this.auth.getUser(this.keyword2);
-      setTimeout(() => ( this.WL[2] = this.auth.WL1,this.in[2] = true), 400);
+      setTimeout(() => ( this.WL[2] = this.auth.WL1,this.in[2] = true), 1000);
     }
     if ((p == 3) && this.keyword3) {
       this.auth.getUser(this.keyword3);
-      setTimeout(() => ( this.WL[3] = this.auth.WL1,this.in[3] = true), 400);
+      setTimeout(() => ( this.WL[3] = this.auth.WL1,this.in[3] = true), 1000);
     }
   }
 }

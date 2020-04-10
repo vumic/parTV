@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestApiService} from '../request-api.service'
-
+import { RouterModule } from '@angular/router';
 import { Movie } from '../Movie';
 
 @Component({

@@ -4,7 +4,7 @@ import { Movie } from '../Movie';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from '../user.model';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',

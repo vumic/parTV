@@ -30,7 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateAPartyComponent } from './create-a-party/create-a-party.component';
-
+import { AngularFirestore } from '@angular/fire/firestore';
 const config = {
   apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
   authDomain: "partv-bd58d.firebaseapp.com",
@@ -46,6 +46,7 @@ const config = {
   imports: [MatSelectModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
+    AngularFirestore,
     MatNativeDateModule,
     BrowserModule,
     FormsModule,

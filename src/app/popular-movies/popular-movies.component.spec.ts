@@ -25,19 +25,17 @@ const config = {
   appId: "1:557773541901:web:ebb8ae79b51220a3f7fb44",
   measurementId: "G-MZNMJMEKR1"
 };
-
-import { TopRatedComponent } from './top-rated.component';
+import { PopularMoviesComponent } from './popular-movies.component';
 import { RouterModule } from '@angular/router';
 import { MovieDisplayComponent } from '../movie-display/movie-display.component';
 
-
-describe('TopRatedComponent', () => {
-  let component: TopRatedComponent;
-  let fixture: ComponentFixture<TopRatedComponent>;
+describe('NowPlayingComponent', () => {
+  let component: PopularMoviesComponent;
+  let fixture: ComponentFixture<PopularMoviesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopRatedComponent ],
+      declarations: [ PopularMoviesComponent ] ,
       imports: [MatSelectModule,
         MatFormFieldModule,
         BrowserAnimationsModule,
@@ -52,14 +50,13 @@ describe('TopRatedComponent', () => {
         RouterModule.forRoot([
           { path: 'movie/:movieID', component: MovieDisplayComponent },
         ])],
-      
       providers: [RequestApiService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopRatedComponent);
+    fixture = TestBed.createComponent(PopularMoviesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,RouterModule} from '@angular/router';
 import { RequestApiService } from '../request-api.service';
 import { AuthService } from '../auth.service';
 import { FirebaseApp, } from '@angular/fire';
 import { Cast } from '../Cast';
 import { Movie } from '../Movie';
 import { User } from '../user.model';
+
 
 @Component({
   selector: 'app-movie-display',
@@ -31,7 +32,8 @@ export class MovieDisplayComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.movie = params.get('movieID');
       console.log(this.movie);
-
+      this.isMovieAdded();
+      setTimeout(() => ( this.movieAdded = this.auth.u), 600);
       this.pservice.getMovie(this.movie).subscribe((res: Movie) => {
         this.data = res;
         console.log("Movie: " + this.data);
@@ -44,9 +46,6 @@ export class MovieDisplayComponent implements OnInit {
         console.log("Cast: " + res);
         this.cast = res;
       });
-      this.isMovieAdded();
-      this.movieAdded = this.auth.u;
-      console.log(this.movieAdded);
     });
   }
   ngOnDestroy() {
@@ -57,7 +56,7 @@ export class MovieDisplayComponent implements OnInit {
      this.subscription =  this.auth.user$.subscribe(async (user) => {
       this.user = user;
        this.auth.isInWatchlist(this.movie, user.uid);
-       setTimeout(() => this.movieAdded = this.auth.u, 200);
+       setTimeout(() => this.movieAdded = this.auth.u, 400);
     });
     this.movieAdded = this.auth.u;
   };
@@ -68,7 +67,6 @@ export class MovieDisplayComponent implements OnInit {
   }
 
   deleteFromWatchlist() {
-
     this.auth.deleteFromWatchlist(this.movie);
     this.movieAdded = false;
   }

@@ -6,6 +6,9 @@
     height: 600px;
     background-color: rgba(134, 134, 134, 0.171);
 }
+.m-bold{
+    font-weight: bold;
+}
 .push {
     height : 40px;
 }
