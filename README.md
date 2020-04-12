@@ -51,6 +51,11 @@
 - Clicking Randomize will bring you to the Movie Page of the corresponding movie.
 <img src="./src/assets/screenshots/random_example.png" >
 
+### Search Movie
+- You can search movies by name and ParTV will send the movies that match your keywords.
+- Example: Searching keyword "harry"
+<img src="./src/assets/screenshots/search_example.png" >
+
 ### Create A Party
 - Only works if you are logged in.
 - The other users you want to create a party with must have an account & watchlists with ParTV

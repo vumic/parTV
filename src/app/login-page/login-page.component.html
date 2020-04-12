@@ -1,16 +1,16 @@
 <div *ngIf="auth.user$ | async as user; else login">
   <div class="body">
     <div class = "push"></div>
-    <h1> Welcome to Par-TV, {{user.displayName}}</h1>
+    <h1> Welcome to ParTV, {{user.displayName}}</h1>
     <div class = "push"></div>
     <div class = "list">
       <p>You can now..</p>
       <ul>
-        <li>Create Watch lists</li>
-        <li>Create a party
+        <li>Create Watchlists</li>
+        <li>Create a Party
           <ul>
-            <li>Add friends to your party (they must have logged in with us)</li>
-            <li>See what movies you all want to watch</li>
+            <li>Add friends to your party (they must have accounts)</li>
+            <li>Merge watchlists</li>
           </ul>
         </li>
       </ul>
@@ -23,14 +23,14 @@
 <ng-template #login>
   <div class="body">
     <div class = "push"></div>
-    <h1> Please Login for more functionality for Par-TV</h1>
+    <h1> Please Login for more functionality for ParTV</h1>
     <div class = "list">
     <ul>
-      <li>Create Watch lists</li>
-      <li>Create a party
+      <li>Create Watchlists</li>
+      <li>Create a Party
         <ul>
-          <li>Add friends to your party (they must have logged in with us)</li>
-          <li>See what movies you all want to watch</li>
+          <li>Add friends to your party (they must have accounts)</li>
+          <li>Merge watchlists</li>
         </ul>
       </li>
     </ul>
