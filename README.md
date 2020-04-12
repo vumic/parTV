@@ -6,7 +6,7 @@
 - Random Movie Generator
 - Create a Party (Merge User Watchlists)
 - Movie Search & Information Pages
-- Displays 20 Top Rated, Now Playing, and Week's Most Popular Movies.
+- Displays 20 Top Rated, Now Playing, and Trending (Week) Movies.
 - Create an Account with Google
 - Holds User Watchlists
 
