@@ -31,6 +31,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateAPartyComponent } from './create-a-party/create-a-party.component';
+import { isDefined } from '@angular/compiler/src/util';
 
 const config = {
   apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
@@ -84,7 +85,11 @@ describe('AuthGuard', () => {
     providers: [RequestApiService]});
     guard = TestBed.inject(AuthGuard);
   });
-
+  class MockRouter {
+    navigate(path) {}
+  }
+  
+  
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });

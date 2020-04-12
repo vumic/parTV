@@ -21,6 +21,7 @@ import { RequestApiService } from '../request-api.service';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { AuthGuard } from '../auth.guard';
 import { MovieDisplayComponent } from '../movie-display/movie-display.component';
+import { AuthService } from '../auth.service';
 
 const config = {
   apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
@@ -35,7 +36,11 @@ const config = {
 describe('UserProfileComponent', () => {
   let component: UserProfileComponent;
   let fixture: ComponentFixture<UserProfileComponent>;
-
+  let mockSomeService = {
+    addToWatchlist: () => {}
+    
+  }
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
      
@@ -55,18 +60,34 @@ describe('UserProfileComponent', () => {
           { path: 'movie/:movieID', component: MovieDisplayComponent },
         ])],
       declarations: [UserProfileComponent,],
-      providers: [RequestApiService]
+      providers: [  {
+        provide: AuthService,
+        useValue: {
+          mockSomeService,
+        }
+    },{
+      provide: UserProfileComponent,
+      useValue: {
+        mockSomeService,
+      }
+  },RequestApiService],
+     
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserProfileComponent);
+  //  fixture = TestBed.createComponent(UserProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('Button should click log out.', () => {
+    // Arrange
+  
+    fixture.componentInstance.ngOnInit();
+    spyOn(mockSomeService, 'addToWatchlist').and.returnValue({ subscribe: () => {} });
+    expect(mockSomeService.addToWatchlist).toHaveBeenCalled();
+   
+});
 });

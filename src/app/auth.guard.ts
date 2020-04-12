@@ -14,7 +14,7 @@ import { tap, map, take } from 'rxjs/operators';
 export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router) {}
 
-  canActivate(next, state): Observable<boolean> {
+  canActivate(next, state): Observable<boolean> | Promise<boolean> | boolean {
     return this.auth.user$.pipe(
       take(1),
       map(user => !!user), // <-- map to boolean
@@ -22,6 +22,9 @@ export class AuthGuard implements CanActivate {
         if (!loggedIn) {
           console.log('access denied');
           this.router.navigate(['/']);
+          return false;
+        }else{
+          return true;
         }
       })
     );
