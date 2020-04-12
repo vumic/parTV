@@ -2,6 +2,18 @@
 - Utilizes [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) & [Firestore](https://firebase.google.com/docs/firestore).
 - Written in Angular
 
+## Table of Contents
+- [Features](#features)
+- [How to Run](#how-to-run-locally)
+- [Screenshots](#screenshots)
+  * [Log in with Google](#log-in-with-google)
+  * [Logged in](#logged-in)
+  * [Homepage](#homepage)
+  * [Movie Page](#movie-page)
+  * [Randomize Movie](#randomize-movie)
+  * [Search Movie](#search-movie)
+  * [Create a Party](#create-a-party)
+
 ## Features
 - Random Movie Generator
 - Create a Party (Merge User Watchlists)
@@ -32,9 +44,10 @@
 - You can now "Create a Party".
 <img src="./src/assets/screenshots/logged_in_example.png" >
 
-### Homepage shows trending/nowplaying/toprated movies
+### Homepage
 - Each movie has an overlay that will show information about movie.
 - Clicking on movie will send you to the movie page.
+- Shows trending/nowplaying/toprated movies
 - Example of trending movies:
 <img src="./src/assets/screenshots/trending_example.png" >
 
@@ -56,7 +69,7 @@
 - Example: Searching keyword "harry"
 <img src="./src/assets/screenshots/search_example.png" >
 
-### Create A Party
+### Create a Party
 - Only works if you are logged in.
 - The other users you want to create a party with must have an account & watchlists with ParTV
 - Enter the emails of each user (up to 3) to create a party.
