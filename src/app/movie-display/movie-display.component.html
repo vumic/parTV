@@ -3,7 +3,9 @@
   <div class="card">
     <span class="image">
       <a href="https://www.imdb.com/title/{{data?.imdb_id}}/" target="_blank">
-      <img src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}" onerror="this.onerror=null; this.src='assets/no_img_full.png'" >
+        <div *ngIf="data?.poster_path; else elseFullBlock">
+          <img src="{{'http://image.tmdb.org/t/p/w342' + data?.poster_path}}">
+        </div>
     </a>
     </span>
     <span id = "movie_text" class="movie">
@@ -33,14 +35,23 @@
           <p id="cast_name">{{member?.name}}</p>
           <p id="character">Character: <span>{{member.character}}</span></p>
         </span>
-          <img src="{{'http://image.tmdb.org/t/p/w154/' + member?.profile_path}}"onerror="this.onerror=null; this.src='assets/no_img_cast.png'" >
+        <div *ngIf="member?.profile_path; else elseCastBlock">
+          <img src="{{'http://image.tmdb.org/t/p/w154/' + member?.profile_path}}">
         </div>
-        
+        </div>
       </div>
     </div>
   </div>
 </div>
 <div id = "push"> </div>
+
+<ng-template #elseFullBlock>
+  <img src="assets/no_img_full.png">
+</ng-template>
+
+<ng-template #elseCastBlock>
+  <img src="assets/no_img_cast.png">
+</ng-template>
 
 <ng-template #delete>
   <button class="button" (click)="deleteFromWatchlist()">Delete From Watchlist</button>

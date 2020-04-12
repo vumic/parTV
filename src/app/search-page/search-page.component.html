@@ -1,4 +1,4 @@
-<div class = "push"></div>
+<div class="push"></div>
 <h2 class="popularTitle">Search Results</h2>
 <div class="searchMovies">
 
@@ -7,16 +7,22 @@
       <a class="overlay" [routerLink]="['/movie',movie.id]">
         <div class="movie">
           <h2>{{movie?.title}}</h2>
-          <p id="overview">Overview: <span id = "ov">{{movie.overview}}</span></p>
-					<p id="rating">Rating: <span> {{movie.vote_average}} / 10</span></p>
+          <p id="overview">Overview: <span id="ov">{{movie.overview}}</span></p>
+          <p id="rating">Rating: <span> {{movie.vote_average}} / 10</span></p>
         </div>
       </a>
-      <img onerror="this.onerror=null; this.src='assets/no_img_full.png'" src="{{'http://image.tmdb.org/t/p/w342' + movie?.poster_path}}">
+      <div *ngIf="movie.poster_path; else elseBlock">
+        <img src="{{'http://image.tmdb.org/t/p/w342' + movie?.poster_path}}">
+      </div>
     </div>
   </div>
 
 </div>
-
-<button id="backButton" [disabled]="isInvalid('back')" (click)="backPage()" *ngIf ="data?.total_pages"  type="button">Back page</button>
-<span [ngModel]="page" ngDefaultControl id = "page" *ngIf ="data?.total_pages">{{page}}</span>
-<button (click)="nextPage()" id="nextButton" [disabled]="isInvalid('next')"  *ngIf ="data?.total_pages"  type="button">Next page</button>
+<ng-template #elseBlock>
+  <img src="assets/no_img_full.png">
+</ng-template>
+<button id="backButton" [disabled]="isInvalid('back')" (click)="backPage()" *ngIf="data?.total_pages" type="button">Back
+  page</button>
+<span [ngModel]="page" ngDefaultControl id="page" *ngIf="data?.total_pages">{{page}}</span>
+<button (click)="nextPage()" id="nextButton" [disabled]="isInvalid('next')" *ngIf="data?.total_pages" type="button">Next
+  page</button>

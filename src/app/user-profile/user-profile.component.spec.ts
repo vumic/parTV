@@ -82,12 +82,4 @@ describe('UserProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Button should click log out.', () => {
-    // Arrange
-  
-    fixture.componentInstance.ngOnInit();
-    spyOn(mockSomeService, 'addToWatchlist').and.returnValue({ subscribe: () => {} });
-    expect(mockSomeService.addToWatchlist).toHaveBeenCalled();
-   
-});
 });

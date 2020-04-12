@@ -18,7 +18,10 @@
     <input (input)="keyword3=$event.target.value" id="textbox3" type="text" placeholder="Enter email...">
     <button (click)="addPerson(3)" id="searchButton" type="submit">add</button>
 </div>
-
+<div class="push"></div>
+<div *ngIf="error > 0">
+<p class="instr">{{errorMessage[0]}} {{errorMessage[1]}} {{errorMessage[2]}}</p>
+</div>
 <div class="push"></div>
 <div class = "merger"><button (click)="merge()" id="searchButton" type="submit">Merge</button></div>
 <div class="push"></div>

@@ -26,7 +26,6 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router,
     private FirebaseApp: FirebaseApp,
-
   ) {
     this.userLoaded = false;
 
@@ -45,43 +44,28 @@ export class AuthService {
   getUser(email) {
     this.afs.collection('users', ref => ref.where(`email`, "==", email))
       .snapshotChanges().subscribe(res => {
-        console.log("res: " + res);
         if (res.length > 0) {
           res.forEach(e => {
             let id = e.payload.doc.id;
-            console.log("ID: ", id);
-            this.getWatchlist2(id).subscribe(x => {
-                this.WL1 = x;
+            this.afs.collection("users").doc(id).collection('watchlist').valueChanges().subscribe(x => {
+              this.WL1 = x;
             });
           });
         }
         else {
           this.WL1 = null;
-          console.log("did not find: " + email);
         }
       });
+  }
 
-  }
-  getWatchlist2(uid) {
-    return this.afs.collection("users").doc(`${uid}`).collection('watchlist').valueChanges();
-  }
   getWatchlist(uid) {
-    const credential = this.FirebaseApp.auth().currentUser.uid;
     return this.afs.collection("users").doc(`${uid}`).collection('watchlist').valueChanges();
   }
 
   isInWatchlist(movieID, uid) {
     this.afs.collection('users').doc(`${uid}`).collection(`watchlist`, ref => ref.where(`id`, "==", movieID))
       .snapshotChanges().subscribe(res => {
-        console.log("res: " + res);
-        if (res.length > 0) {
-          this.u = true;
-          console.log("found: " + movieID + " " + uid);
-        }
-        else {
-          this.u = false;
-          console.log("did not find: " + movieID + " " + uid);
-        }
+         (res.length > 0) ? this.u = true : this.u = false;
       });
   }
 

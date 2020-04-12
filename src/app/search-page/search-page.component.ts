@@ -26,7 +26,6 @@ export class SearchPageComponent implements OnInit {
 
       this.pservice.searchQuery(this.query, this.page).subscribe((res: Movie) => {
         this.data = res;
-        console.log(this.data);
       });
     });
   }

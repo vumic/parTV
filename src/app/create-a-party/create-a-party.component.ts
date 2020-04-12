@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
-import {RouterModule} from '@angular/router'
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'app-create-a-party',
@@ -13,12 +13,16 @@ export class CreateAPartyComponent implements OnInit {
   keyword2: string;
   keyword3: string;
   subscription;
+  error: number;
+  errorMessage: string[];
   WL: any[];
   in: boolean[];
   user: User;
   constructor(public auth: AuthService) {
-    this.in = new Array(4).fill(false);
+    this.in = new Array(3).fill(false);
     this.WL = [];
+    this.error = 0;
+    this.errorMessage = new Array(4).fill("");
   }
 
   ngOnInit(): void {
@@ -43,7 +47,6 @@ export class CreateAPartyComponent implements OnInit {
         for (var obj in this.WL[1]) {
           if (this.WL[0][key].id == this.WL[1][obj].id) {
             diffs.push(this.WL[0][key]);
-            console.log(diffs);
           }
         }
       }
@@ -75,16 +78,45 @@ export class CreateAPartyComponent implements OnInit {
   addPerson(p) {
     if ((p == 1) && this.keyword1) {
       this.auth.getUser(this.keyword1);
-      setTimeout(() => ( this.WL[1] = this.auth.WL1, this.in[1] = true), 1000);
-
+      setTimeout(() => (this.WL[1] = this.auth.WL1, this.in[1] = true, this.checkErrors(p)), 1000);
     }
     if ((p == 2) && this.keyword2) {
       this.auth.getUser(this.keyword2);
-      setTimeout(() => ( this.WL[2] = this.auth.WL1,this.in[2] = true), 1000);
+      setTimeout(() => (this.WL[2] = this.auth.WL1, this.in[2] = true, this.checkErrors(p)), 1000);
     }
     if ((p == 3) && this.keyword3) {
       this.auth.getUser(this.keyword3);
-      setTimeout(() => ( this.WL[3] = this.auth.WL1,this.in[3] = true), 1000);
+      setTimeout(() => (this.WL[3] = this.auth.WL1, this.in[3] = true, this.checkErrors(p)), 1000);
+    }
+  }
+  checkErrors(p) {
+    if ((p == 1)) {
+      if (this.WL[1]) {
+        this.errorMessage[0] = "";
+        this.error > 0 ? this.error--:this.error;
+      } else {
+        this.error++;
+        this.errorMessage[0] = `[ERROR: ${this.keyword1} INVALID]`;
+      }
+    }
+    if ((p == 2)) {
+      if (this.WL[2]) {
+        this.errorMessage[1] = "";
+        this.error >0 ?this.error--:this.error;
+      } else {
+        this.error++;
+        this.errorMessage[1] = `[ERROR: ${this.keyword2} INVALID]`;
+      }
+    }
+    if ((p == 3)) {
+      if (this.WL[3]) {
+        this.errorMessage[2] = "";
+        this.error >0 ?this.error--:this.error;
+      } else {
+        this.error++;
+        this.errorMessage[2] = `[ERROR: ${this.keyword3} INVALID]`;
+      }
     }
   }
 }
+

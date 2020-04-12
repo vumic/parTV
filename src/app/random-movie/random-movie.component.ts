@@ -23,7 +23,6 @@ export class RandomMovieComponent implements OnInit {
 
   ngOnInit() {
     this.service.getGenres().subscribe((res: Genres) => {
-      console.log(res);
       this.data = res;
     });
   }
