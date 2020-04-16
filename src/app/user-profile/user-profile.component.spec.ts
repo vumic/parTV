@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -36,10 +36,6 @@ const config = {
 describe('UserProfileComponent', () => {
   let component: UserProfileComponent;
   let fixture: ComponentFixture<UserProfileComponent>;
-  let mockSomeService = {
-    addToWatchlist: () => {}
-    
-  }
   
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -59,27 +55,22 @@ describe('UserProfileComponent', () => {
           { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
           { path: 'movie/:movieID', component: MovieDisplayComponent },
         ])],
-      declarations: [UserProfileComponent,],
-      providers: [  {
-        provide: AuthService,
-        useValue: {
-          mockSomeService,
-        }
-    },{
-      provide: UserProfileComponent,
-      useValue: {
-        mockSomeService,
-      }
-  },RequestApiService],
-     
-    })
+      declarations: [UserProfileComponent],
+      providers: [AuthService,RequestApiService]
+  })
     .compileComponents();
   }));
 
   beforeEach(() => {
-  //  fixture = TestBed.createComponent(UserProfileComponent);
+    fixture = TestBed.createComponent(UserProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  it('Popular Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#popularTitle');
+    expect(title.innerHTML).toBe('Welcome');
+  });
 });

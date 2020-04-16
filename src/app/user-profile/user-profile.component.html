@@ -1,8 +1,6 @@
 <div class ="push"></div>
 <div *ngIf="auth.user$ | async as user; else login">
-  <p id="popularTitle">
-    {{user.displayName}}'s Watchlist
-  </p>
+  <p id="popularTitle">{{user.displayName}}'s Watchlist</p>
   <div class ="push"></div>
  
   <div class="popDisplay">
@@ -24,5 +22,6 @@
 
 
 <ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+  <p id="popularTitle">Welcome</p>
+  <button id = 'loginB'class="button" (click)="auth.googleSignin()">Login with Google</button>
 </ng-template>

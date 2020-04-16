@@ -36,6 +36,7 @@ export class MovieDisplayComponent implements OnInit {
       setTimeout(() => (this.movieAdded = this.auth.u), 600);
       this.pservice.getMovie(this.movie).subscribe((res: Movie) => {
         this.data = res;
+        console.log(this.data);
         for (let i = 0; i < this.data.genres.length; i++) {
           this.genres += this.data.genres[i].name + " ";
         }

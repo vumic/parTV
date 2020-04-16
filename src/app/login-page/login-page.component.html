@@ -1,7 +1,7 @@
 <div *ngIf="auth.user$ | async as user; else login">
   <div class="body">
     <div class = "push"></div>
-    <h1> Welcome to ParTV, {{user.displayName}}</h1>
+    <h1 id = 'title'> Welcome to ParTV, {{user.displayName}}</h1>
     <div class = "push"></div>
     <div class = "list">
       <p>You can now..</p>
@@ -23,7 +23,7 @@
 <ng-template #login>
   <div class="body">
     <div class = "push"></div>
-    <h1> Please Login for more functionality for ParTV</h1>
+    <h1 id = 'title'>Please Login for more functionality for ParTV</h1>
     <div class = "list">
     <ul>
       <li>Create Watchlists</li>
@@ -36,6 +36,6 @@
     </ul>
   </div>
     <div class = "push"></div>
-    <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+    <button id = "loginB" class="button" (click)="auth.googleSignin()">Login with Google</button>
   </div>
 </ng-template>

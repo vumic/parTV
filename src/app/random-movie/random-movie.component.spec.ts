@@ -5,7 +5,7 @@ import { User } from '../user.model';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -43,9 +43,9 @@ describe('RandomMovieComponent', () => {
           { path: 'movie/:movieID', component: MovieDisplayComponent },
         ])],
       providers: [RequestApiService],
-      declarations: [ RandomMovieComponent,MovieDisplayComponent ]
+      declarations: [RandomMovieComponent, MovieDisplayComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -53,8 +53,30 @@ describe('RandomMovieComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(title.innerHTML).toBe('Randomize a movie');
+  });
+  it('Movie test.', () => {
+    
+    const title = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(title.innerHTML).toBe('Randomize a movie');
+  });
+  it('should have a title', () => {
+    const title = fixture.debugElement.query(By.css('mat-label')).nativeElement;
+    expect(title.innerHTML).toBe('Choose Genre');
+  });
+  it('randomize button has correct text', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#rBut');
+    expect(btn.innerHTML).toBe('Randomize');
+  });
+
+  it('enabled randomize button', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#rBut');
+    expect(btn.disabled).toBeFalsy();
   });
 });

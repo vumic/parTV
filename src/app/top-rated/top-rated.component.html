@@ -1,7 +1,5 @@
 <div class = "push"></div>
-<p id="popularTitle">
-	TOP RATED MOVIES
-</p>
+<p id="popularTitle">TOP RATED MOVIES</p>
 <div class="popDisplay">
 	<button [disabled]="isInvalid('back')" (click)="back()" id = 'back' ><</button>
 	<div *ngFor="let movie of data?.results| slice:x:y; let i=index;">

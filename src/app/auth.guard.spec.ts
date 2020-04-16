@@ -88,7 +88,9 @@ describe('AuthGuard', () => {
   class MockRouter {
     navigate(path) {}
   }
-  
+  it('defined function call', () => {
+    expect(guard.canActivate(null,null)).toBeDefined();
+  });
   
   it('should be created', () => {
     expect(guard).toBeTruthy();

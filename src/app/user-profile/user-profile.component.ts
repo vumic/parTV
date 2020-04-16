@@ -18,23 +18,20 @@ export class UserProfileComponent {
   private destroy$: Subject<void> = new Subject();
   user: User;
   subscription: Subscription;
+  
   constructor(public auth: AuthService, private afs: AngularFirestore, ) {
 
   }
 
   ngOnInit(): void {
-
-  this.auth.user$.subscribe(async (user) => {
+  this.subscription = this.auth.user$.subscribe(async (user) => {
       this.user = user;
-      this.auth.getWatchlist(this.user.uid).pipe(takeUntil(this.destroy$)).subscribe(x => {
+      this.auth.getWatchlist(this.user.uid).subscribe(x => {
         this.movies = x;
       })
     });
-
   }
   ngOnDestroy(){
-    this.destroy$.next();
-    this.destroy$.complete();
+    this.subscription.unsubscribe();
   }
-
 }

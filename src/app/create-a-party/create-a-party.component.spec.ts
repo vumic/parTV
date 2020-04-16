@@ -95,7 +95,30 @@ describe('CreateAPartyComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  it('Add Person Called after Search Button', async(() => {
+    spyOn(component, 'addPerson');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('#searchButton');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.addPerson).toHaveBeenCalled();
+    });
+  }));
+  it('Merged called', async(() => {
+    spyOn(component, 'merge');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('#mergeButton');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.merge).toHaveBeenCalled();
+    });
+  }));
+  it(' Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(title.innerHTML).toBe('Create A Party!');
+  });
   it('should create', () => {
     expect(component).toBeTruthy();
   });

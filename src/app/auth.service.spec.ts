@@ -15,7 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 
 //components
 import { AppComponent } from './app.component';
@@ -83,7 +83,7 @@ describe('AuthService', () => {
       RandomMovieComponent,
       LoginPageComponent,
       CreateAPartyComponent],
-    providers: [RequestApiService]});
+    providers: [RequestApiService,AngularFireAuth]});
     service = TestBed.inject(AuthService);
   });
 
@@ -91,5 +91,21 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('No users.', () =>{
+    expect(service.getUser('invalid')).toBeUndefined();
+    expect(service.WL1).toBeUndefined();
+  });
+  it('Watchlists returns an observable', () =>{
+    expect(service.getWatchlist('123')).toBeDefined();
+  });
+  it('No in watchlist.', () =>{
+    expect(service.isInWatchlist('123','123')).toBeUndefined();
+    expect(service.u).toBeFalsy();
+  });
+  it('returns observable delete watchlist.', () =>{
+    expect(service.deleteFromWatchlist('123')).toBeDefined();
+  
+  });
+ 
 
 });

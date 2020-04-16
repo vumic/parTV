@@ -1,12 +1,10 @@
 <div class ="push"></div>
-<p id="popularTitle">
-	TRENDING MOVIES OF THE WEEK
-</p>
+<p id="popularTitle">TRENDING MOVIES OF THE WEEK</p>
 <div class="popDisplay">
 	<button [disabled]="isInvalid('back')" (click)="back()" id = 'back' ><</button>
 	<div *ngFor="let movie of data?.results | slice:x:y; let i=index;">
 		<div class="card" >
-			<a class="overlay" [routerLink]= "['/movie',movie.id]">
+			<a id = "overlay" class="overlay" [routerLink]= "['/movie',movie.id]">
 				<div class="movie">
 					<h2>{{movie.title}}</h2>
 					<p id="overview">Overview: <span id = "ov">{{movie.overview}}</span></p>

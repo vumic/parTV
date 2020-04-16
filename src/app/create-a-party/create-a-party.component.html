@@ -1,6 +1,6 @@
 <div class="push"></div>
 <div class="instr">
-    <h1>Create A Party!</h1>
+    <h1 id =  'title'>Create A Party!</h1>
     <p>Not sure what your friends want to watch? ParTV allows you to see what everyone wants to watch.
         (assuming everyone has an account here).
     </p>
@@ -23,7 +23,7 @@
 <p class="instr">{{errorMessage[0]}} {{errorMessage[1]}} {{errorMessage[2]}}</p>
 </div>
 <div class="push"></div>
-<div class = "merger"><button (click)="merge()" id="searchButton" type="submit">Merge</button></div>
+<div class = "merger"><button (click)="merge()" id="mergeButton" type="submit">Merge</button></div>
 <div class="push"></div>
 
 <div *ngIf="in[4]">

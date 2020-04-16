@@ -61,8 +61,47 @@ describe('MovieDisplayComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  let data = {
+    "adult": false,
+    "budget": 125000000,
+    "genres": [
+      {
+        "id": 12,
+        "name": "Adventure"
+      },
+      {
+        "id": 14,
+        "name": "Fantasy"
+      },
+      {
+        "id": 10751,
+        "name": "Family"
+      }
+    ],
+    "id": 671,
+    "imdb_id": "tt0241527",
+    "original_title": "Harry Potter and the Philosopher's Stone",
+    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard -- with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths -- and about the villain who's to blame.",
+    "popularity": 86.885,
+    "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+    "release_date": "2001-11-16",
+    "revenue": 976475550,
+    "runtime": 152,
+    "tagline": "Let the Magic Begin.",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "vote_average": 7.9,
+    "vote_count": 16292
+  };
+  it('Movie testing.', () => {
+  
+    const title = fixture.debugElement.nativeElement.querySelector('#cast_label');
+    expect(title.innerHTML).toBe('Cast');
+  });
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('Cast Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#cast_label');
+    expect(title.innerHTML).toBe('Cast');
   });
 });

@@ -7,7 +7,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
+import { config } from '../../config';
+import { apiconfig } from '../config';
 //firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -15,21 +16,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { RequestApiService } from '../request-api.service';
-const config = {
-  apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
-  authDomain: "partv-bd58d.firebaseapp.com",
-  databaseURL: "https://partv-bd58d.firebaseio.com",
-  projectId: "partv-bd58d",
-  storageBucket: "partv-bd58d.appspot.com",
-  messagingSenderId: "557773541901",
-  appId: "1:557773541901:web:ebb8ae79b51220a3f7fb44",
-  measurementId: "G-MZNMJMEKR1"
-};
 import { PopularMoviesComponent } from './popular-movies.component';
 import { RouterModule } from '@angular/router';
 import { MovieDisplayComponent } from '../movie-display/movie-display.component';
 
-describe('NowPlayingComponent', () => {
+describe('PopularMoviesComponent', () => {
   let component: PopularMoviesComponent;
   let fixture: ComponentFixture<PopularMoviesComponent>;
 
@@ -42,6 +33,7 @@ describe('NowPlayingComponent', () => {
         MatNativeDateModule,
         BrowserModule,
         FormsModule,
+     
         HttpClientModule,
         AngularFireModule.initializeApp(config),
         AngularFirestoreModule,
@@ -61,7 +53,33 @@ describe('NowPlayingComponent', () => {
     fixture.detectChanges();
   });
 
+  it('Movie data should be undefined before request.', () => {
+    expect(component.data).toBe(undefined);
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should have forward Button', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#forward');
+    expect(btn.innerHTML).toBe('&gt;');
+    expect(btn.disabled).toBeFalsy();
+  });
+  it('should have back Button', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#back');
+    expect(btn.innerHTML).toBe('&lt;');
+    expect(btn.disabled).toBeTruthy();
+  });
+  it('Check indexes', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#back');
+    const fbtn = fixture.debugElement.nativeElement.querySelector('#forward');
+    expect(btn.disabled).toBeTruthy();
+    fbtn.click();
+    expect(component.x).toBe(4);
+    expect(component.y).toBe(8);
+  });
+  it('Popular Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#popularTitle');
+    expect(title.innerHTML).toBe('TRENDING MOVIES OF THE WEEK');
   });
 });

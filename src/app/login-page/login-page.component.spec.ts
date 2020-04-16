@@ -33,11 +33,12 @@ import { LoginPageComponent } from './login-page.component';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
+
   let fixture: ComponentFixture<LoginPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-       
+
       imports: [MatSelectModule,
         MatFormFieldModule,
         BrowserAnimationsModule,
@@ -48,14 +49,14 @@ describe('LoginPageComponent', () => {
         AngularFireModule.initializeApp(config),
         AngularFirestoreModule,
         AngularFireAuthModule,
-        AngularFireStorageModule, 
+        AngularFireStorageModule,
         RouterModule.forRoot([
           { path: 'login', component: LoginPageComponent },
         ])],
-      providers: [RequestApiService],
-      declarations: [ LoginPageComponent]
+      providers: [RequestApiService, AuthService],
+      declarations: [LoginPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -66,5 +67,18 @@ describe('LoginPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('Auth services called', async(() => {
+    const Service = TestBed.get(AuthService);
+    spyOn(Service, 'googleSignin');
+    let button = fixture.debugElement.nativeElement.querySelector('#loginB');
+    button.click();
+    fixture.whenStable().then(() => {
+      expect(Service.googleSignin).toHaveBeenCalled();
+    });
+  }));
+  it(' Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(title.innerHTML).toBe('Please Login for more functionality for ParTV');
   });
 });

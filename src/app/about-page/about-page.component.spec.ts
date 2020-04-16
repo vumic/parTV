@@ -18,7 +18,10 @@ describe('AboutPageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  it('Title Exists.', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(title.innerHTML).toBe('About ParTV');
+  });
   it('should create', () => {
     expect(component).toBeTruthy();
   });
