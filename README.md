@@ -1,6 +1,7 @@
 # ParTV
 - Utilizes [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) & [Firestore](https://firebase.google.com/docs/firestore).
 - Written in Angular
+- Hosted on Heroku. https://partv.herokuapp.com/
 
 ## Table of Contents
 - [Features](#features)
@@ -23,7 +24,7 @@
 - Holds User Watchlists
 
 ## How to run locally: 
-1. must create a config.js with [tMDB APIKEY](https://developers.themoviedb.org/3/getting-started/introduction) if you want to run locally.
+1. Must create a config.js with [tMDB APIKEY](https://developers.themoviedb.org/3/getting-started/introduction) if you want to run locally.
 ##### example:
 > export var config = {
     MY_KEY : '?api_key={insertkey}',
