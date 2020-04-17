@@ -9,7 +9,8 @@ import { config } from '../config';
 
 @Injectable()
 export class RequestApiService {
-  private key = config.MY_KEY;
+  //private key = config.MY_KEY;
+  private key = process.env.tmdbKEY;
   private url = "https://api.themoviedb.org/3/";
 
   //calls to tMDB API.

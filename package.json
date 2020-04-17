@@ -16,6 +16,7 @@
     "@angular/router": "^9.0.6",
     "axios": "^0.19.2",
     "core-js": "2",
+    "express": "^4.17.1",
     "firebase": "^7.12.0",
     "jw-angular-pagination": "^1.1.0",
     "minimist": "^1.2.5",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node Server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
