@@ -5,7 +5,6 @@ import { Cast } from './Cast';
 import { Genres } from './Genres';
 import { Observable, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { config } from '../config';
 
 @Injectable()
 export class RequestApiService {
