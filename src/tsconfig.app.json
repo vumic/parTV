@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "typeRoots": ["node_modules/@types"],
-    "types": ["webrtc"]
+    "types": ["node"]
   },
   "exclude": [
     "test.ts",
