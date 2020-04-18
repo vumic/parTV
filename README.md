@@ -1,4 +1,6 @@
 # ParTV
+**Objective:**  The main purpose of ParTV is to create an easy way for friends and families to find a movie to watch.
+## Specs
 - Utilizes [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) & [Firestore](https://firebase.google.com/docs/firestore).
 - Written in Angular
 - Hosted on Heroku. https://partv.herokuapp.com/
