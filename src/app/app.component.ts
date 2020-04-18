@@ -9,5 +9,5 @@ import { NgModule } from '@angular/core';
 })
 export class AppComponent  {
   constructor(public auth: AuthService) {}
-  name = 'Angular';
+  name = 'ParTV';
 }

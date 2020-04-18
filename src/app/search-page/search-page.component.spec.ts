@@ -95,13 +95,13 @@ describe('SearchPageComponent', () => {
     component.data.total_pages = 1;
     expect(component.isInvalid('next')).toBeTruthy();
   });
+
   it('should have back Button disabled', () => {
     component.page = 1;
     component.data = test;
     expect(component.isInvalid('back')).toBeTruthy();
 
   });
-
 
   it('should create', () => {
     expect(component).toBeTruthy();

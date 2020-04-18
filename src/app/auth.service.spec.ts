@@ -104,7 +104,7 @@ describe('AuthService', () => {
   });
   it('returns observable delete watchlist.', () =>{
     expect(service.deleteFromWatchlist('123')).toBeDefined();
-  
+
   });
  
 

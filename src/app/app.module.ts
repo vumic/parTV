@@ -7,13 +7,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 //firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { RouterTestingModule } from '@angular/router/testing';
+
 //components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -49,7 +50,6 @@ const config = {
     MatNativeDateModule,
     RouterTestingModule,
     BrowserModule,
-  //  HttpClientTestingModule,
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),

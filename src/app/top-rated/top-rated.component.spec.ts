@@ -73,6 +73,16 @@ describe('TopRatedComponent', () => {
     expect(btn.innerHTML).toBe('&lt;');
     expect(btn.disabled).toBeTruthy();
   });
+  it('forward called', async(() => {
+    spyOn(component, 'forward');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('#forward');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.forward).toHaveBeenCalled();
+    });
+  }));
   it('Check indexes', () => {
     const btn = fixture.debugElement.nativeElement.querySelector('#back');
     const fbtn = fixture.debugElement.nativeElement.querySelector('#forward');

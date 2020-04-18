@@ -29,17 +29,28 @@ export class SearchPageComponent implements OnInit {
       });
     });
   }
-
+  /**
+   * Changes the page in the http call to tmdb
+   */
   nextPage() {
     if (this.page < this.data.total_pages) {
       this.router.navigate(['/search/', this.query, ++this.page]);
     }
   }
+
+  /**
+   * Changes the page in the http call to tmdb
+   */
   backPage() {
     if (this.page > 1) {
       this.router.navigate(['/search/', this.query, --this.page]);
     }
   }
+
+  /**
+   * Checking whether the button is invalid or not
+   * @param button either back or next button.
+   */
   isInvalid(button : string) {
    return (button === "back") ? (this.page == 1) ? true : false : (this.page == this.data.total_pages ) ? true : false; 
   }

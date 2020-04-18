@@ -61,11 +61,7 @@ describe('RandomMovieComponent', () => {
     const title = fixture.debugElement.nativeElement.querySelector('#title');
     expect(title.innerHTML).toBe('Randomize a movie');
   });
-  it('Movie test.', () => {
-    
-    const title = fixture.debugElement.nativeElement.querySelector('#title');
-    expect(title.innerHTML).toBe('Randomize a movie');
-  });
+ 
   it('should have a title', () => {
     const title = fixture.debugElement.query(By.css('mat-label')).nativeElement;
     expect(title.innerHTML).toBe('Choose Genre');
@@ -79,4 +75,14 @@ describe('RandomMovieComponent', () => {
     const btn = fixture.debugElement.nativeElement.querySelector('#rBut');
     expect(btn.disabled).toBeFalsy();
   });
+  it('getMovie Called after random Button', async(() => {
+    spyOn(component, 'getMovie');
+ 
+    let button = fixture.debugElement.nativeElement.querySelector('#rBut');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.getMovie).toHaveBeenCalled();
+    });
+  }));
 });

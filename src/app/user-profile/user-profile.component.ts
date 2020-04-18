@@ -6,7 +6,6 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { User } from '../user.model';
 import { RouterModule } from '@angular/router';
 
-import { mergeMap, filter, catchError, takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -15,7 +14,7 @@ import { mergeMap, filter, catchError, takeUntil } from 'rxjs/operators';
 export class UserProfileComponent {
   movieCollection: AngularFirestoreCollection<Movie>;
   movies;
-  private destroy$: Subject<void> = new Subject();
+
   user: User;
   subscription: Subscription;
   

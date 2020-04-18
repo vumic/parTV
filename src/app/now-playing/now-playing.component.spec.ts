@@ -72,6 +72,16 @@ describe('NowPlayingComponent1', () => {
     expect(btn.innerHTML).toBe('&gt;');
     expect(btn.disabled).toBeFalsy();
   });
+  it('forward called', async(() => {
+    spyOn(component, 'forward');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('#forward');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.forward).toHaveBeenCalled();
+    });
+  }));
   it('should have back Button', () => {
     const btn = fixture.debugElement.nativeElement.querySelector('#back');
     expect(btn.innerHTML).toBe('&lt;');

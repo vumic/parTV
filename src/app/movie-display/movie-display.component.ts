@@ -49,7 +49,9 @@ export class MovieDisplayComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
+  /**
+   * Makes sure your movie is added if youre logged in.
+   */
   async isMovieAdded() {
     this.subscription = this.auth.user$.subscribe(async (user) => {
       if (user) {
@@ -60,12 +62,16 @@ export class MovieDisplayComponent implements OnInit {
     });
     this.movieAdded = this.auth.u;
   };
-
+  /**
+   * Adds current movie in your WL & its not added. if youre logged in.
+   */
   addToWatchlist() {
     this.auth.addToWatchlist(this.movie, this.data);
     this.movieAdded = true;
   }
-
+  /**
+   * Adds current movie in your WL & its not added. if youre logged in.
+   */
   deleteFromWatchlist() {
     this.auth.deleteFromWatchlist(this.movie);
     this.movieAdded = false;

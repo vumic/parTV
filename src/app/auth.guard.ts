@@ -14,6 +14,7 @@ import { tap, map, take } from 'rxjs/operators';
 export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router) {}
 
+  //checks if user is locked in.
   canActivate(next, state): Observable<boolean> | Promise<boolean> | boolean {
     return this.auth.user$.pipe(
       take(1),

@@ -77,6 +77,10 @@ describe('LoginPageComponent', () => {
       expect(Service.googleSignin).toHaveBeenCalled();
     });
   }));
+  it('button correct', async(() => {
+    let button = fixture.debugElement.nativeElement.querySelector('#loginB');
+   button.innerHTML = 'Login with Google';
+  }));
   it(' Title Exists.', () => {
     const title = fixture.debugElement.nativeElement.querySelector('#title');
     expect(title.innerHTML).toBe('Please Login for more functionality for ParTV');

@@ -73,4 +73,8 @@ describe('UserProfileComponent', () => {
     const title = fixture.debugElement.nativeElement.querySelector('#popularTitle');
     expect(title.innerHTML).toBe('Welcome');
   });
+  it('Find Button', () => {
+    const but = fixture.debugElement.nativeElement.querySelector('#loginB');
+    expect(but.innerHTML).toBe('Login with Google');
+  });
 });
