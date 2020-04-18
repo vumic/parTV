@@ -6,6 +6,7 @@
 ## Table of Contents
 - [Features](#features)
 - [How to Run](#how-to-run-locally)
+- [Testing](#testing)
 - [Screenshots](#screenshots)
   * [Log in with Google](#log-in-with-google)
   * [Logged in](#logged-in)
@@ -31,6 +32,11 @@
   }
 2. Install dependencies: npm install  
 3. Host server: ng serve --open (localhost:4200)
+
+## Testing:
+- Passed 55 tests. (spec files) using Jasmine.
+- Run Jasmine via ng test command.
+<img src="./src/assets/screenshots/testing.png">
 
 ## Screenshots
 
