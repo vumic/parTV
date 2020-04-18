@@ -20,15 +20,15 @@
 
 ## Features
 - Random Movie Generator
+- Watchlists
 - Create a Party (Merge User Watchlists)
-- Movie Search & Information Pages
-- Displays 20 Top Rated, Now Playing, and Trending (Week) Movies.
-- Create an Account with Google
-- Holds User Watchlists
+- Movie Search & Movie Pages
+- Displays 20 Top Rated, Now Playing, and Trending (Week) Movies
+- Google Authentication 
 
-## How to run locally: 
-1. Must create a config.js with [tMDB APIKEY](https://developers.themoviedb.org/3/getting-started/introduction) if you want to run locally.
-##### example:
+## How to Run Locally: 
+1. Must create a config.js with [tMDB APIKEY](https://developers.themoviedb.org/3/getting-started/introduction) if you want to run locally. ( under /src )
+#### Example:
 > export var config = {
     MY_KEY : '?api_key={insertkey}',
   }
@@ -36,7 +36,7 @@
 3. Host server: ng serve --open (localhost:4200)
 
 ## Testing:
-- Passed 55 tests. (spec files) using Jasmine.
+- Passed 55 tests (spec files) using Jasmine.
 - Run Jasmine via ng test command.
 <img src="./src/assets/screenshots/testing.png">
 
@@ -56,16 +56,16 @@
 ### Homepage
 - Each movie has an overlay that will show information about movie.
 - Clicking on movie will send you to the movie page.
-- Shows trending/nowplaying/toprated movies
-- Example of trending movies:
+- Shows trending/now-playing/top-rated movies.
+- **Example:** Trending Movies:
 <img src="./src/assets/screenshots/trending_example.png" >
 
 
 ### Movie Page
-- Each movie will show movie information, and cast list.
+- Each movie will show movie information and cast list.
 - If logged in, you are able to ADD or DELETE from watchlist.
 - Clicking on movie poster will send you to [IMDB](https://www.imdb.com/) page.
-- Example of Movie: Little Women (Currently Logged in & Movie in Watchlist)
+- **Example:** Movie: Little Women (Logged in & Movie in Watchlist)
 <img src="./src/assets/screenshots/movie_example.png" >
 
 ### Randomize Movie
@@ -75,14 +75,14 @@
 
 ### Search Movie
 - You can search movies by name and ParTV will send the movies that match your keywords.
-- Example: Searching keyword "harry"
+- **Example:** Searching keyword "harry"
 <img src="./src/assets/screenshots/search_example.png" >
 
 ### Create a Party
 - Only works if you are logged in.
-- The other users you want to create a party with must have an account & watchlists with ParTV
+- The other users you want to create a party with must have an account & watchlists with ParTV.
 - Enter the emails of each user (up to 3) to create a party.
-- You can see all watchlists of each user
+- You can see all watchlists of each user.
 - Clicking "Merge" will show what movies each user shares.
-- Example: Shows merging 2 emails with the current user (emails not depicted). Where 3 users all have those movies in their watchlist.
+- **Example:** Shows merging 2 emails with the current user (emails not depicted). Where 3 users all have those movies in their watchlist.
 <img src="./src/assets/screenshots/cop_example.png" >
