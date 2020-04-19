@@ -3,7 +3,7 @@
 ## Specs
 - Utilizes [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) & [Firestore](https://firebase.google.com/docs/firestore).
 - Written in Angular
-- Hosted on Heroku. https://partv.herokuapp.com/
+- Hosted on Heroku. http://partv.herokuapp.com/
 
 ## Table of Contents
 - [Features](#features)
