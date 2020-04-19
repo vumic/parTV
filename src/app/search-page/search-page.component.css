@@ -43,20 +43,24 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.8);
-    transition: .3s ease-in-out;
     padding: 0px;
     display: none;
     text-decoration: none;
   }
+
+  .overlay:hover{
+    transition: .3s ease-in-out;
+    background-color: rgba(0,0,0,.8);
+  }
  
   .movie p {
-  
     color: #4CA1AF;
     font-size: 14px;
     text-align: center;
   }
-
+  #r{
+    color:white;
+  }
   #overview{
     color: #4CA1AF;
     font-size: 10px;
@@ -75,6 +79,7 @@
     width: auto;
     font-size: 20px;
     color: #4CA1AF;
+    line-height: 1.5 ;
   }
   .card:hover .overlay{
     display: block;
@@ -91,7 +96,33 @@
   #page {
     position:absolute;
     left:50%;
+    font-weight : bold;
+    font-size: 17px;
   }
+  button {
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    border-radius: 2px;
+    padding: 6px;
+    font-weight : bold;
+    font-size: 17px;
+    border: 1px solid #4CA1AF;
+    cursor: pointer;
+    background: #4CA1AF;   
+    }
+  button:hover{
+    transition: .5s;
+    border: 1px solid rgb(120, 137, 139);;
+    background: rgb(120, 137, 139);
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid rgba(103, 174, 182, 0.219);
+  background: rgba(103, 174, 182, 0.219);
+  color: white;
+}
 
   
   

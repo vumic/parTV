@@ -31,6 +31,11 @@ button{
   cursor: pointer;
   background: #4CA1AF;
 }
+button:hover{
+  transition: .5s;
+  border: 1px solid rgb(120, 137, 139);;
+  background: rgb(120, 137, 139);
+}
 .popDisplay .card{
   position: relative;
   height: 270px;
@@ -50,8 +55,11 @@ button{
 .popDisplay h2{
   color: #4CA1AF;
   text-decoration: none;
+  line-height: 1.5 ;
 }
-
+#r{
+  color:white;
+}
 .popDisplay .movie p {
   color: #4CA1AF;
   font-size: 14px;
@@ -102,4 +110,10 @@ button{
  text-align : center;
  font-size : 30px;
  font-weight: bold;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid rgba(103, 174, 182, 0.219);
+  background: rgba(103, 174, 182, 0.219);
+  color: white;
 }

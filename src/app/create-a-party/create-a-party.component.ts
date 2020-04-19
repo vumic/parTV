@@ -96,7 +96,8 @@ export class CreateAPartyComponent implements OnInit {
         this.error > 0 ? this.error--:this.error;
       } else {
         this.error++;
-        this.errorMessage[0] = `[ERROR: ${this.keyword1} INVALID]`;
+        this.in[1] = false;
+        this.errorMessage[0] = `[ ${this.keyword1} ]`;
       }
     }
     if ((p == 2)) {
@@ -105,7 +106,8 @@ export class CreateAPartyComponent implements OnInit {
         this.error >0 ?this.error--:this.error;
       } else {
         this.error++;
-        this.errorMessage[1] = `[ERROR: ${this.keyword2} INVALID]`;
+        this.in[2] = false;
+        this.errorMessage[1] = `[ ${this.keyword2} ]`;
       }
     }
     if ((p == 3)) {
@@ -114,7 +116,8 @@ export class CreateAPartyComponent implements OnInit {
         this.error >0 ?this.error--:this.error;
       } else {
         this.error++;
-        this.errorMessage[2] = `[ERROR: ${this.keyword3} INVALID]`;
+        this.in[3] = false;
+        this.errorMessage[2] = `[ ${this.keyword3} ]`;
       }
     }
   }

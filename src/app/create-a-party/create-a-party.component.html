@@ -1,7 +1,7 @@
 <div class="push"></div>
 <div class="instr">
     <h1 id =  'title'>Create A Party!</h1>
-    <p>Not sure what your friends want to watch? ParTV allows you to see what everyone wants to watch.
+    <p>Not sure what your friends want to watch? ParTV allows you to see everyone's watchlist.
         (assuming everyone has an account here).
     </p>
     <h2>How to create a party?</h2>
@@ -20,7 +20,7 @@
 </div>
 <div class="push"></div>
 <div *ngIf="error > 0">
-<p class="instr">{{errorMessage[0]}} {{errorMessage[1]}} {{errorMessage[2]}}</p>
+<p id = "error" class="instr">Error: {{errorMessage[0]}} {{errorMessage[1]}} {{errorMessage[2]}} is an invalid email</p>
 </div>
 <div class="push"></div>
 <div class = "merger"><button (click)="merge()" id="mergeButton" type="submit">Merge</button></div>
@@ -37,7 +37,9 @@
                         <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
                     </span>
                 </span>
+                <div *ngIf="movie.poster_path; else elseBlock">
                 <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                </div>
             </div>
         </div>
     </div>
@@ -51,10 +53,14 @@
                 <span a class="overlay" [routerLink]="['/movie',movie.id]">
                     <span class="movie">
                         <h2>{{movie.title}}</h2>
-                        <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                        <span *ngIf="movie.vote_average">  
+                            <p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+                          </span>
                     </span>
                 </span>
-                <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                <div *ngIf="movie.poster_path; else elseBlock">
+                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                    </div>
             </div>
         </div>
     </div>
@@ -66,10 +72,14 @@
                     <span a class="overlay" [routerLink]="['/movie',movie.id]">
                         <span class="movie">
                             <h2>{{movie.title}}</h2>
-                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                            <span *ngIf="movie.vote_average">  
+                                <p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+                              </span>
                         </span>
                     </span>
-                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                    <div *ngIf="movie.poster_path; else elseBlock">
+                        <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                        </div>
                 </div>
             </div>
         </div>
@@ -82,10 +92,14 @@
                     <span a class="overlay" [routerLink]="['/movie',movie.id]">
                         <span class="movie">
                             <h2>{{movie.title}}</h2>
-                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                            <span *ngIf="movie.vote_average">  
+                                <p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+                              </span>
                         </span>
                     </span>
-                    <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                    <div *ngIf="movie.poster_path; else elseBlock">
+                        <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
+                        </div>
                 </div>
             </div>
         </div>
@@ -98,7 +112,9 @@
                     <span a class="overlay" [routerLink]="['/movie',movie.id]">
                         <span class="movie">
                             <h2>{{movie.title}}</h2>
-                            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+                            <span *ngIf="movie.vote_average">  
+                                <p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+                              </span>
                         </span>
                     </span>
                     <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
@@ -107,3 +123,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #elseBlock>
+    <img src="assets/no_img_full.png">
+  </ng-template>

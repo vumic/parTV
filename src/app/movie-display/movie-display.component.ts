@@ -22,11 +22,13 @@ export class MovieDisplayComponent implements OnInit {
   genres = '';
   movieAdded;
   user: User;
+  hidden: boolean;
 
   subscription : Subscription;
   constructor(private route: ActivatedRoute, private service: RequestApiService, public auth: AuthService, private FirebaseApp: FirebaseApp, ) {
     this.pservice = service;
     this.movieAdded = false;
+    this.hidden = true;
   }
 
   ngOnInit() {
@@ -36,9 +38,8 @@ export class MovieDisplayComponent implements OnInit {
       setTimeout(() => (this.movieAdded = this.auth.u), 600);
       this.pservice.getMovie(this.movie).subscribe((res: Movie) => {
         this.data = res;
-        console.log(this.data);
         for (let i = 0; i < this.data.genres.length; i++) {
-          this.genres += this.data.genres[i].name + " ";
+          (i == this.data.genres.length-1 ) ? this.genres += this.data.genres[i].name + " " : this.genres += this.data.genres[i].name + ", "
         }
       });
       this.pservice.getCast(this.movie).subscribe((res: Cast) => {
@@ -57,7 +58,7 @@ export class MovieDisplayComponent implements OnInit {
       if (user) {
         this.user = user;
         this.auth.isInWatchlist(this.movie, this.user.uid);
-        setTimeout(() => this.movieAdded = this.auth.u, 400);
+        setTimeout(() => (this.movieAdded = this.auth.u, this.hidden = false), 400);
       }
     });
     this.movieAdded = this.auth.u;

@@ -7,8 +7,12 @@
       <a class="overlay" [routerLink]="['/movie',movie.id]">
         <div class="movie">
           <h2>{{movie?.title}}</h2>
-          <p id="overview">Overview: <span id="ov">{{movie.overview}}</span></p>
-          <p id="rating">Rating: <span> {{movie.vote_average}} / 10</span></p>
+          <span *ngIf="movie.overview">  
+						<p id="overview">Overview: <span id = "ov">{{ (movie.overview.length>400)? (movie.overview | slice:0:400)+'...':(movie.overview)}}</span></p>
+					</span>
+					<span *ngIf="movie.vote_average">  
+						<p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+					</span>
         </div>
       </a>
       <div *ngIf="movie.poster_path; else elseBlock">

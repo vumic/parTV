@@ -107,3 +107,14 @@ button{
     cursor: pointer;
     background: #4CA1AF;
 }
+button:hover{
+    transition: .5s;
+    border: 1px solid rgb(120, 137, 139);;
+    background: rgb(120, 137, 139);
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid rgba(103, 174, 182, 0.219);
+  background: rgba(103, 174, 182, 0.219);
+  color: white;
+}

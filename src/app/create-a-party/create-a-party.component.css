@@ -23,16 +23,30 @@ input[type=text] {
 .merger{
   text-align:center;
 }
+#error{
+  font-weight : bold;
+  font-size: 17px;
+  color: maroon;
+}
+#r{
+  color:white;
+}
 button {
-
+  border-radius: 2px;
     padding: 6px;
     margin-top: 8px;
     margin-right: 16px;
+    font-weight : bold;
     font-size: 17px;
     border: 1px solid #4CA1AF;
     cursor: pointer;
     background: #4CA1AF;
   }
+  button:hover{
+    transition: .5s;
+    border: 1px solid rgb(120, 137, 139);;
+    background: rgb(120, 137, 139);
+}
   #popularTitle{
     text-align: center;
     font-size: 40px;

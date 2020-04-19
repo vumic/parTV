@@ -9,7 +9,9 @@
         <span a class="overlay" [routerLink]="['/movie',movie.id]">
           <span class="movie">
             <h2>{{movie.title}}</h2>
-            <p id="rating"><strong>Rating:</strong> <span> {{movie.vote_average}} / 10</span></p>
+            <span *ngIf="movie.vote_average">  
+              <p id="rating">Rating: <span id = "r"> {{movie.vote_average}} / 10</span></p>
+            </span>
           </span>
         </span>
         <img src="{{'http://image.tmdb.org/t/p/w342' + movie.poster_path}}">
