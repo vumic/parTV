@@ -8,7 +8,7 @@ import { map, catchError } from "rxjs/operators";
 import { config } from '../config';
 @Injectable()
 export class RequestApiService {
-  private key = config.MY_KEY;
+  private key = '?api_key=27220e51c0eaac440a67a9605a63827a';
   private url = "https://api.themoviedb.org/3/";
 
   //calls to tMDB API.

@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" /><!-- Bootstrap.css -->
 <header id="header">
 	<a home [routerLink]="['']">
 		<h1>ParTV <img src="assets/lbicon.png" class="icon" alt="lbicon"></h1>
 	</a>
+	<nav id="topNav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<ul id="navID" class="navBar">
 		<button mat-button [routerLink]="['']">Home</button>
 		
@@ -18,7 +19,6 @@
 				<button mat-menu-item  [routerLink]="['user']"> Watchlist</button>
 				<button mat-menu-item (click)="auth.signOut()">Log Out</button>
 			</mat-menu>
-			
 		</span>
 		<div class="search-container">
 			<mat-form-field floatLabel="always" class="example-full-width" appearance="outline">
@@ -27,6 +27,7 @@
 			</mat-form-field>
 		</div>
 	</ul>
+	</nav>
 </header>
 
 <ng-template #login>
