@@ -5,7 +5,7 @@ import { Cast } from './Cast';
 import { Genres } from './Genres';
 import { Observable, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { config } from '../config';
+//import { config } from '../config';
 @Injectable()
 export class RequestApiService {
   private key = '?api_key=27220e51c0eaac440a67a9605a63827a';
