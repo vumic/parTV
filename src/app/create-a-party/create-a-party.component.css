@@ -92,6 +92,23 @@ h2 {
     padding: 0px;
     text-decoration: none;
   }
+  .mat-raised-button{
+    background: #4CA1AF;
+  }
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #4CA1AF !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #4CA1AF !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #4CA1AF !important;;
+  }
   .popDisplay h2{
     color: #4CA1AF;
     text-decoration: none;

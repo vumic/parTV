@@ -67,3 +67,11 @@ button.mat-menu-item:hover {
     background-color: #4CA1AF;
     color: #fff !important;
 }
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #4CA1AF;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color:  #4CA1AF !important;
+}
+/* Font color */
+
