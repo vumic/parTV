@@ -36,7 +36,7 @@
 3. Host server: ng serve --open (localhost:4200)
 
 ## Testing:
-- Passed 55 tests (spec files) using Jasmine.
+- Passed 54 tests (spec files) using Jasmine.
 - Run Jasmine via ng test command.
 <img src="./src/assets/screenshots/testing.png">
 
