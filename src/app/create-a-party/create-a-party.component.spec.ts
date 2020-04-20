@@ -34,7 +34,10 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { AuthGuard } from '../auth.guard';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { CreateAPartyComponent } from '../create-a-party/create-a-party.component';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 const config = {
   apiKey: "AIzaSyCZlbqn6rRIyunepEx2o2ShLqsnXLXpr68",
   authDomain: "partv-bd58d.firebaseapp.com",
@@ -53,9 +56,12 @@ describe('CreateAPartyComponent', () => {
     TestBed.configureTestingModule({
       imports: [MatSelectModule,
         MatFormFieldModule,
+        MatCheckboxModule,
+        MatButtonModule,
         BrowserAnimationsModule,
         MatNativeDateModule,
         BrowserModule,
+        MatInputModule,
         FormsModule,
         HttpClientModule,
         AngularFireModule.initializeApp(config),
@@ -95,16 +101,7 @@ describe('CreateAPartyComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Add Person Called after Search Button', async(() => {
-    spyOn(component, 'addPerson');
-  
-    let button = fixture.debugElement.nativeElement.querySelector('#searchButton');
-    button.click();
-  
-    fixture.whenStable().then(() => {
-      expect(component.addPerson).toHaveBeenCalled();
-    });
-  }));
+
   it('Merged called', async(() => {
     spyOn(component, 'merge');
   

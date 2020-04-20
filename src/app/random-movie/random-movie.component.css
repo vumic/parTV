@@ -4,32 +4,17 @@
     display: block;
     margin: 0 auto;
     text-align : center;
- 
 }
+
 .push{
     height: 40px;
 }
+
 #random.container h1{
     font-size: 30px;
     font-weight : bold;
- 
 }
-p{
+
+p {
     font-size : 20px;
-}
-button{
-    width: 150px;
-    height: 50px;
-    border-radius: 2px;
-    padding: 6px;
-    font-weight : bold;
-    font-size: 17px;
-    border: 1px solid #4CA1AF;
-    cursor: pointer;
-    background: #4CA1AF;
-}
-button:hover{
-    transition: .5s;
-    border: 1px solid rgb(120, 137, 139);;
-    background: rgb(120, 137, 139);
 }

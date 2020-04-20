@@ -20,10 +20,11 @@
   </div>
 </div>
 <div class ="push"></div>
-<button class="button" (click)="auth.signOut()">Sign Out</button>
+<button mat-raised-button class="button" (click)="auth.signOut()" color="primary">Sign Out</button>
 
 
 <ng-template #login>
   <p id="popularTitle">Welcome</p>
-  <button id = 'loginB'class= "button" (click)="auth.googleSignin()">Login with Google</button>
+  <button mat-raised-button id = "loginB"class="button" (click)="auth.googleSignin()" color="primary">Login with Google</button>
+
 </ng-template>

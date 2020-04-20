@@ -99,30 +99,7 @@
     font-weight : bold;
     font-size: 17px;
   }
-  button {
-    display: block;
-    margin: auto;
-    width: 100px;
-    height: 30px;
-    border-radius: 2px;
-    padding: 6px;
-    font-weight : bold;
-    font-size: 17px;
-    border: 1px solid #4CA1AF;
-    cursor: pointer;
-    background: #4CA1AF;   
-    }
-  button:hover{
-    transition: .5s;
-    border: 1px solid rgb(120, 137, 139);;
-    background: rgb(120, 137, 139);
-}
-button:disabled,
-button[disabled]{
-  border: 1px solid rgba(103, 174, 182, 0.219);
-  background: rgba(103, 174, 182, 0.219);
-  color: white;
-}
+
 
   
   

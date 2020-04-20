@@ -25,8 +25,9 @@
 <ng-template #elseBlock>
   <img src="assets/no_img_full.png">
 </ng-template>
-<button id="backButton" [disabled]="isInvalid('back')" (click)="backPage()" *ngIf="data?.total_pages" type="button">Back
-  page</button>
+<button id="backButton" mat-raised-button [disabled]="isInvalid('back')" (click)="backPage()" *ngIf="data?.total_pages" color="primary">Back page</button>
+
 <span [ngModel]="page" ngDefaultControl id="page" *ngIf="data?.total_pages">{{page}}</span>
-<button (click)="nextPage()" id="nextButton" [disabled]="isInvalid('next')" *ngIf="data?.total_pages" type="button">Next
-  page</button>
+
+<button id="nextButton" mat-raised-button [disabled]="isInvalid('next')" (click)="nextPage()" *ngIf="data?.total_pages" color="primary">Next page</button>
+

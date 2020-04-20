@@ -5,10 +5,10 @@ import { Cast } from './Cast';
 import { Genres } from './Genres';
 import { Observable, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { config } from '../config';
+//import { config } from '../config';
 @Injectable()
 export class RequestApiService {
-  private key = config.MY_KEY;
+  private key = '?api_key=27220e51c0eaac440a67a9605a63827a';
   private url = "https://api.themoviedb.org/3/";
 
   //calls to tMDB API.
@@ -90,9 +90,9 @@ export class RequestApiService {
 /** Gets the top 50 pages for each movie genre ( each movie page will return 20 movies.)
  * So in total, you will be picking 1/1000 movies for a "random movie".               */
 
-  discover(genreID: number): Observable<Movie[]> {
+  discover(genreID: number, max:number): Observable<Movie[]> {
     let name = "";
-    let randomNum = Math.floor(Math.random() * 50) + 1;
+    let randomNum = Math.floor(Math.random() * max) + 1;
     if (genreID > 0) {
         name = "&with_genres=" + genreID;
     } return this.http.get<Movie[]>(this.url + 'discover/movie' + this.key + '&language=en-US &sort_by=popularity.desc&include_adult=false&include_video=false&page='+randomNum + name).pipe(

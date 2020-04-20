@@ -78,23 +78,10 @@
  font-size : 30px;
  font-weight: bold;
 }
-.button {
-  display: block;
-  margin: auto;
-  width: 150px;
-  height: 75px;
-  border-radius: 2px;
-  padding: 6px;
-  font-weight : bold;
-  font-size: 17px;
-  border: 1px solid #4CA1AF;
-  cursor: pointer;
-  background: #4CA1AF;   
-  }
-  button:hover{
-    transition: .5s;
-    border: 1px solid rgb(120, 137, 139);;
-    background: rgb(120, 137, 139);
+.mat-raised-button{
+ 
+  left:47%;
+ 
 }
 #r{
   color:white;

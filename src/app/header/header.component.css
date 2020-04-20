@@ -24,48 +24,46 @@ a{
   color: #4CA1AF;
 }
 #header ul.navBar {
-  list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  height:48px;
 }
 
-#header ul.navBar li {float: left;}
-
-#header ul.navBar li a {
-  display: block;
-  color: rgb(236, 238, 241);
-  text-align: center;
-  font-size: 15px;
-  font-weight: lighter 400;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 #header ul.navBar #right {
   float: right;
 }
-.navBar .search-container {float: right;}
-.navBar .search-container button {
+.navBar .search-container {
   float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  border: 1px solid #4CA1AF;
-  cursor: pointer;
-  background: #4CA1AF;
+  height: 28px;
+}
+#textbox{
+  color:white;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label { margin-top:-15px; }
+::ng-deep label.ng-star-inserted { transform: translateY(-0.59375em) scale(.75) !important; }
+::ng-deep .mat-form-field-wrapper { top: 5px}
+
+.mat-button{
+  bottom:-5px;
+  color: white !important;
+  font-size: 20px;
+  font-weight: lighter 400;
+}
+.mat-button:hover{
+  color: #4CA1AF !important;
+}
+.mat-menu-item {
+  color: #4CA1AF !important;
 }
 
-.navBar .search-container button:hover {
-  transition: .5s;
-  border: 1px solid rgb(120, 137, 139);;
-  background: rgb(120, 137, 139);
+button.mat-menu-item{
+    background-color: white;
 }
-.navBar input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
+
+button.mat-menu-item:hover {
+    background-color: #4CA1AF;
+    color: #fff !important;
 }
-.navBar input[type=text] {border: 1px solid #ccc;}

@@ -1,7 +1,11 @@
 <div id="random" class="container">
   <h1 id="title">Randomize a movie</h1>
   <p> Can't figure out what to watch?<br><br> ParTV will randomize a movie in your choice genre.</p>
-  <div class = "push"></div>
+  <div>
+    <mat-checkbox (change)="onChkChange()"> Check for only popular movies</mat-checkbox>
+  </div>
+  <div class="push"></div>
+  
   <mat-form-field>
     <mat-label>Choose Genre</mat-label>
     <mat-select (selectionChange)=selectedGenre($event)>
@@ -11,7 +15,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div class = "push"></div>
-  <div><button id = "rBut" (click)="getMovie()">Randomize</button></div>
-  <div class = "push"></div>
+  
+  <div class="push"></div>
+  <button mat-raised-button id ="rBut"(click)="getMovie()" color="primary">Randomize</button>
+  <div class="push"></div>
 </div>

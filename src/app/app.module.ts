@@ -8,7 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 //firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -50,7 +53,11 @@ const config = {
     MatNativeDateModule,
     RouterTestingModule,
     BrowserModule,
+    MatMenuModule,
+    MatInputModule,
+    MatButtonModule,
     FormsModule,
+    MatCheckboxModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,

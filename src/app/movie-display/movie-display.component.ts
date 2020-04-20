@@ -22,13 +22,14 @@ export class MovieDisplayComponent implements OnInit {
   genres = '';
   movieAdded;
   user: User;
-  hidden: boolean;
+  hide: boolean;
+  len:number;
 
   subscription : Subscription;
   constructor(private route: ActivatedRoute, private service: RequestApiService, public auth: AuthService, private FirebaseApp: FirebaseApp, ) {
     this.pservice = service;
     this.movieAdded = false;
-    this.hidden = true;
+    this.hide = true;
   }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class MovieDisplayComponent implements OnInit {
       if (user) {
         this.user = user;
         this.auth.isInWatchlist(this.movie, this.user.uid);
-        setTimeout(() => (this.movieAdded = this.auth.u, this.hidden = false), 400);
+        setTimeout(() => (this.movieAdded = this.auth.u, this.hide = false), 400);
       }
     });
     this.movieAdded = this.auth.u;

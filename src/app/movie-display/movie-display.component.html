@@ -32,8 +32,8 @@
     </span>
       <span *ngIf="auth.user$ | async as user">
         <span *ngIf="!movieAdded; else delete">
-          <button [disabled]='hidden' [hidden]='!hidden' class="button">Loading ...</button>
-          <button [hidden]='hidden' class="button" (click)="addToWatchlist()">Add to Watchlist</button>
+          <button mat-raised-button [disabled]='hide'class="button" [hidden]='!hide' color="primary" >... Loading ...</button>
+          <button mat-raised-button [hidden]='hide'class="button"  (click)="addToWatchlist()" color="primary">Add to Watchlist</button>
         </span>
       </span>
     </span>
@@ -43,7 +43,7 @@
 <div class="displayCast">
   <h2 id="cast_label">Cast</h2>
   <div class="CM">
-    <div *ngFor="let member of cast?.cast ">
+    <div *ngFor="let member of cast?.cast | slice:0:14;">
       <div class="cast_card">
         <div class="cast_image">
           <span class="cast">
@@ -80,6 +80,8 @@
 </ng-template>
 
 <ng-template #delete>
-  <button [disabled]='hidden' [hidden]='!hidden' class="button">Loading ...</button>
-  <button [hidden]='hidden' class="button" (click)="deleteFromWatchlist()">Delete From Watchlist</button>
+  
+  <button mat-raised-button [disabled]='hide' [hidden]='!hide' color="primary">... Loading ...</button>
+  <button mat-raised-button [hidden]='hide' (click)="deleteFromWatchlist()" color="primary">Delete From Watchlist</button>
+
 </ng-template>

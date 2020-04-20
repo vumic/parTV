@@ -11,19 +11,30 @@
 </div>
 
 <div class="search">
-    <input (input)="keyword1=$event.target.value" id="textbox1" type="text" placeholder="Enter email...">
-    <button (click)="addPerson(1)" id="searchButton" type="submit">add</button>
-    <input (input)="keyword2=$event.target.value" id="textbox2" type="text" placeholder="Enter email...">
-    <button (click)="addPerson(2)" id="searchButton" type="submit">add</button>
-    <input (input)="keyword3=$event.target.value" id="textbox3" type="text" placeholder="Enter email...">
-    <button (click)="addPerson(3)" id="searchButton" type="submit">add</button>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email 1</mat-label>
+          <input matInput (input)="keyword1=$event.target.value"  (keyup.enter) ="addPerson(1)"
+            id="textbox1" type="email" placeholder="Ex. janedoe@gmail.com">
+        </mat-form-field>
+       <mat-form-field class="example-full-width">
+        <mat-label>Email 2</mat-label>
+        <input matInput (input)="keyword2=$event.target.value" (keyup.enter) ="addPerson(2)" id="textbox2" 
+        type="email" placeholder="Ex. janedoe@gmail.com">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email 3</mat-label>
+        <input matInput (input)="keyword3=$event.target.value"(keyup.enter) ="addPerson(3)" id="textbox3" 
+        type="email" placeholder="Ex. janedoe@gmail.com">
+      </mat-form-field>
+      </form>
 </div>
-<div class="push"></div>
 <div *ngIf="error > 0">
 <p id = "error" class="instr">Error: {{errorMessage[0]}} {{errorMessage[1]}} {{errorMessage[2]}} is an invalid email</p>
 </div>
 <div class="push"></div>
-<div class = "merger"><button (click)="merge()" id="mergeButton" type="submit">Merge</button></div>
+<div class = "merger"><button mat-raised-button (click)="merge()" id="mergeButton" type="submit" color="primary">Merge</button></div>
+
 <div class="push"></div>
 
 <div *ngIf="in[4]">
